@@ -76,8 +76,8 @@ int submenu_localizar_rotas(){
     printf("2. Listagem de Rotas por Destino;\n");
     printf("3. Listagem de Rotas por Origem;\n");
     printf("4. Listagem de Rotas por Numero de Passageiros;\n");
-    printf("5. Listagem de Rotas com Maior Numero de Passageiros;\n");
-    printf("6. Listagem de Rotas com Menor Numero de Passageiros;\n");
+    printf("5. Mostrar Rota com Maior Numero de Passageiros;\n");
+    printf("6. Mostrar Rota com Menor Numero de Passageiros;\n");
     printf("0. Voltar.\n");
     printf("::::::: ");
     scanf("%d", &opc);

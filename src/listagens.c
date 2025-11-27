@@ -283,3 +283,42 @@ void listagem_rotas_menor_n_passageiros(rotas_t *menores_rotas, int k){
     }
     free(menores_rotas);
 }*/
+
+void mostrar_rota_maior_n_passageiros(rotas_t *lista_rotas){
+    // cálculo da maior rota
+    rotas_t *maior_rota = lista_rotas; // inicialmente, a maior rota é a primeira registrada
+    int maior_passageiros = lista_rotas->n_passageiros;
+    
+    while(lista_rotas){
+        if(lista_rotas->n_passageiros >= maior_passageiros){
+            maior_passageiros = lista_rotas->n_passageiros;
+            maior_rota = lista_rotas;
+        }
+        
+        lista_rotas = lista_rotas->prox;
+
+    }
+    
+    // mostra a maior rota
+    mostrar_rota(maior_rota, stdout);
+
+}
+
+void mostrar_rota_menor_n_pasageiros(rotas_t *lista_rotas){
+    // cálculo da menor rota
+    rotas_t *menor_rota = lista_rotas; // inicialmente, a maior rota é a primeira registrada
+    int menor_passageiros = lista_rotas->n_passageiros;
+    
+    while(lista_rotas){
+        if(lista_rotas->n_passageiros <= menor_passageiros){
+            menor_passageiros = lista_rotas->n_passageiros;
+            menor_rota = lista_rotas;
+        }
+        
+        lista_rotas = lista_rotas->prox;
+
+    }
+    
+    // mostra a menor rota
+    mostrar_rota(menor_rota, stdout);
+}
