@@ -11,7 +11,7 @@ void apagar_aeronave(aeronaves_t *aeronave, aeronaves_t **lista_aeronaves){
 
     } else {
         
-        anterior = localizar_anterior(aeronave, *lista_aeronaves);
+        anterior = localizar_aeronave_anterior(aeronave, *lista_aeronaves);
         anterior->prox = aeronave->prox;
 
     }
@@ -21,7 +21,7 @@ void apagar_aeronave(aeronaves_t *aeronave, aeronaves_t **lista_aeronaves){
 
 aeronaves_t* localizar_aeronave_anterior(aeronaves_t *aeronave, aeronaves_t *lista_aeronaves){
     if(aeronave == lista_aeronaves){
-        return lista_aeronaves; 
+        return lista_aeronaves;
     }
 
     while(lista_aeronaves) {

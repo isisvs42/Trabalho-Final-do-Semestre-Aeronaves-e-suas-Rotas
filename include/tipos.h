@@ -1,3 +1,6 @@
+#ifndef TIPOS_H
+#define TIPOS_H
+
 #define T_STRING         20
 #define T_MAX_AERONAVES 100
 #define T_TRIPULACAO     50
@@ -50,3 +53,5 @@ typedef struct rotas {
     string nomes_tripulacao[T_TRIPULACAO];
     struct rotas *prox;
 } rotas_t;
+
+#endif

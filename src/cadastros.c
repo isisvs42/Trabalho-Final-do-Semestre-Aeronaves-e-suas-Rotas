@@ -1,5 +1,6 @@
 #include "../include/tipos.h"
 #include "../include/cadastros.h"
+#include "../include/uteis.h"
 #include <string.h>
 #include <ctype.h>
 

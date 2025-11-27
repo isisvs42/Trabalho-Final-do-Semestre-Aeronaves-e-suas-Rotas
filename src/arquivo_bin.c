@@ -1,7 +1,7 @@
 #include "../include/arquivo_bin.h"
 #include "../include/cadastros.h"
 
-void salvar_dados_arq_bin_aeronaves(aeronaves_t *lista, string nome_arq){
+void salvar_dados_arq_bin_aeronaves(aeronaves_t *lista, char* nome_arq){
     FILE *fp_arquivo = NULL;
     
     fp_arquivo = fopen(nome_arq, "wb");
@@ -17,7 +17,7 @@ void salvar_dados_arq_bin_aeronaves(aeronaves_t *lista, string nome_arq){
     fclose(fp_arquivo);
 }
 
-void ler_dados_arq_bin_aeronaves(string nome_arq, aeronaves_t **lista){
+void ler_dados_arq_bin_aeronaves(char* nome_arq, aeronaves_t **lista){
     FILE *fp_arquivo = NULL;
     aeronaves_t *aeronave = NULL;
     
@@ -39,7 +39,7 @@ void ler_dados_arq_bin_aeronaves(string nome_arq, aeronaves_t **lista){
 
 }
 
-void salvar_dados_arq_bin_rotas(rotas_t *lista, string nome_arq){
+void salvar_dados_arq_bin_rotas(rotas_t *lista, char* nome_arq){
     FILE *fp_arquivo = NULL;
 
     fp_arquivo = fopen(nome_arq, "wb");
@@ -56,7 +56,7 @@ void salvar_dados_arq_bin_rotas(rotas_t *lista, string nome_arq){
 
 }
 
-void ler_dados_arq_bin_rotas(string nome_arq, rotas_t **lista){
+void ler_dados_arq_bin_rotas(char* nome_arq, rotas_t **lista){
     FILE *fp_arquivo = NULL;
     rotas_t *rota = NULL;
 

@@ -1,5 +1,7 @@
 #include "../include/listagens.h"
 #include <stdbool.h>
+#include <string.h>
+#include <ctype.h>
 
 // mostrar aeronaves
 void listar_aeronaves(aeronaves_t *lista){
