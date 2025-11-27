@@ -1,8 +1,11 @@
+#include "./include/apagar.h"
+#include "./include/arquivo_bin.h"
+#include "./include/cadastros.h"
+#include "./include/exportar_txt.h"
+#include "./include/listagens.h"
+#include "./include/menus.h"
 #include "./include/tipos.h"
 #include "./include/uteis.h"
-#include "./include/menus.h"
-#include "./include/cadastros.h"
-#include "./include/listagens.h"
 
 int main(){
     bool carga;
@@ -16,10 +19,21 @@ int main(){
     aeronaves_t *aeronave = NULL, *lista_aeronaves = NULL;
     rotas_t *rota = NULL, *lista_rotas = NULL;
     //rotas_t *maiores_rotas = NULL, *menores_rotas = NULL;
+
+    ler_dados_arq_bin_aeronaves("aeronaves.bin", &lista_aeronaves);
+    ler_dados_arq_bin_rotas("rotas.bin", &lista_rotas);
+
     do{
         opc_menu = menu();
 
         switch (opc_menu){
+
+            case 0:
+                salvar_dados_arq_bin_aeronaves(lista_aeronaves, "aeronaves.bin");
+                salvar_dados_arq_bin_rotas(lista_rotas, "rotas.bin");
+                printf("Encerrando programa...");
+                pressione_enter();
+                break;
 
             case 1: // CADASTRAR
                 do {
@@ -341,30 +355,21 @@ int main(){
                     
                     switch (opc_sub){
                         case 1: // exportar aeronaves
-                            printf("Digite o nome da equipe que deseja apagar: ");
-                            fgets(nome_equipe, T_STR, stdin);
-                            retirar_enter(nome_equipe);
-                            formatar_maiusculo(nome_equipe);
-                            equipe = localizar_equipe_por_nome(nome_equipe, lista_equipes);
-                            if (equipe == NULL)
-                                printf("Equipe %s não encontrada.\n");
-                            else
-                                // poderia perguntar se tem certeza de que quer apagar essa equipe e mostrar os dados dela
-                                apagar_equipe(equipe, &lista_equipes);
-                            
-                            
+                            printf("Digite um nome para o arquivo ser gerado (AERONAVES): ");
+                            fgets(nome, T_STRING, stdin);
+                            retirar_enter(nome);
+                            exportar_dados_arquivo_texto_aeronaves(nome, lista_aeronaves);
                             break;
 
                         case 2: // exportar rotas
-
+                            printf("Digite um nome para o arquivo ser gerado (ROTAS): ");
+                            fgets(nome, T_STRING, stdin);
+                            retirar_enter(nome);
+                            exportar_dados_arquivo_texto_rotas(nome, lista_rotas);
                             break;
                     }
 
                 } while (opc_sub);
-                break;
-
-            case 0:
-                printf("Encerrando programa...");
                 break;
 
             default:
