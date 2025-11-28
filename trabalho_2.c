@@ -316,7 +316,7 @@ int main(){
                                         listagem_rotas_menor_n_passageiros(menores_rotas, numero);
                                         pressione_enter();*/
 
-                                        mostrar_rota_menor_n_pasageiros(lista_rotas);
+                                        mostrar_rota_menor_n_passageiros(lista_rotas);
                                         pressione_enter();
 
                                         break;
