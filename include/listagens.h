@@ -7,9 +7,9 @@
 // mostrar aeronaves
 void listar_aeronaves(aeronaves_t *lista);
 void mostrar_aeronave(aeronaves_t *aeronave, FILE *fp);
-void mostrar_fabricante(fabricantes_t fabricante);
-void mostrar_tipo(tipos_t tipo);
-void mostrar_situacao(situacao_t situacao);
+void mostrar_fabricante(fabricantes_t fabricante, FILE *fp);
+void mostrar_tipo(tipos_t tipo, FILE *fp);
+void mostrar_situacao(situacao_t situacao, FILE *fp);
 
 // listagens de aeronaves
 void listagem_aeronaves_prefixo(string prefixo, aeronaves_t *lista);
@@ -26,7 +26,7 @@ void listagem_rotas_destino(string destino, rotas_t *lista_rotas);
 void listagem_rotas_origem(string origem, rotas_t *lista_rotas);
 void listagem_rotas_numero_passageiros(int n_passageiros, rotas_t *lista_rotas);
 void mostrar_rota_maior_n_passageiros(rotas_t *lista_rotas);
-void mostrar_rota_menor_n_pasageiros(rotas_t *lista_rotas);
+void mostrar_rota_menor_n_passageiros(rotas_t *lista_rotas);
 
 /*int calculo_rotas_com_maior_n_pass(rotas_t **maiores_rotas, aeronaves_t *lista_aeronaves, rotas_t *lista_rotas);
 void listagem_rotas_maior_n_passageiros(rotas_t *maiores_rotas, int k);

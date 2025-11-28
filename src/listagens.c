@@ -13,51 +13,51 @@ void listar_aeronaves(aeronaves_t *lista){
 
 void mostrar_aeronave(aeronaves_t *aeronave, FILE *fp){
     fprintf(fp, "Identificacao.................... %u\n", aeronave->codigo_aeronave);
-    fprintf(fp, "Fabricante....................... "); mostrar_fabricante(aeronave->fabricante);
+    fprintf(fp, "Fabricante....................... "); mostrar_fabricante(aeronave->fabricante, fp);
     fprintf(fp, "Modelo........................... %s\n", aeronave->modelo);
     fprintf(fp, "Prefixo.......................... %s\n", aeronave->prefixo);
     fprintf(fp, "Ano de fabricacao................ %i\n", aeronave->ano_de_fabricacao);
-    fprintf(fp, "Tipo............................. "); mostrar_tipo(aeronave->tipo);
-    fprintf(fp, "Situacao......................... "); mostrar_situacao(aeronave->situacao);
+    fprintf(fp, "Tipo............................. "); mostrar_tipo(aeronave->tipo, fp);
+    fprintf(fp, "Situacao......................... "); mostrar_situacao(aeronave->situacao, fp);
     fprintf(fp, "Tripulacao necessaria............ %i\n", aeronave->tripulacao_necessaria);
-    printf("\n");
+    fprintf(fp, "\n");
 }
 
-void mostrar_fabricante(fabricantes_t fabricante){
+void mostrar_fabricante(fabricantes_t fabricante, FILE *fp){
     switch (fabricante){
         case AIRBUS:
-            printf("Airbus\n");
+            fprintf(fp, "Airbus\n");
             break;
         
         case BOEING:
-            printf("Boeing\n");
+            fprintf(fp, "Boeing\n");
             break;
 
         case EMBRAER:
-            printf("Embraer\n");
+            fprintf(fp, "Embraer\n");
             break;
     }
 }
 
-void mostrar_tipo(tipos_t tipo){
+void mostrar_tipo(tipos_t tipo, FILE *fp){
     switch(tipo){
         case CARGA:
-            printf("Carga\n");
+            fprintf(fp, "Carga\n");
             break;
         case PASSAGEIRO:
-            printf("Passageiro\n");
+            fprintf(fp, "Passageiro\n");
             break;
     }
 }
 
-void mostrar_situacao(situacao_t situacao){
+void mostrar_situacao(situacao_t situacao, FILE *fp){
     switch (situacao){
         case OPERACAO:
-            printf("Em operacao\n");
+            fprintf(fp, "Em operacao\n");
             break;
         
         case MANUTENCAO:
-            printf("Em manutencao\n");
+            fprintf(fp, "Em manutencao\n");
             break;
         }
 }
@@ -143,7 +143,6 @@ void listagem_aeronaves_situacao(situacao_t situacao, aeronaves_t *lista){
 
 // listagens de rotas
 void mostrar_rota(rotas_t *rota, FILE *fp){
-    printf("\n");
     fprintf(fp, "Codigo da aeronave alocada........ %u\n", rota->codigo_da_aeronave);
     fprintf(fp, "Codigo da rota.................... %u\n", rota->codigo_da_rota);
     fprintf(fp, "Data.............................. %02d/%02d/%02d\n", rota->data.dia, rota->data.mes, rota->data.ano);
@@ -155,7 +154,7 @@ void mostrar_rota(rotas_t *rota, FILE *fp){
     fprintf(fp, "N passageiros..................... %u\n", rota->n_passageiros);
     fprintf(fp, "N carga........................... %u\n", rota->n_carga);
     //mostrar_nomes_tripulacao(rota->identificacao, rota, lista_aeronaves);
-    printf("\n");
+    fprintf(fp, "\n");
 }
 
 void listagem_rotas_data(data_t inicio, data_t fim, rotas_t *lista_rotas){
@@ -288,8 +287,8 @@ void listagem_rotas_menor_n_passageiros(rotas_t *menores_rotas, int k){
 
 void mostrar_rota_maior_n_passageiros(rotas_t *lista_rotas){
     // cálculo da maior rota
-    rotas_t *maior_rota = lista_rotas; // inicialmente, a maior rota é a primeira registrada
-    int maior_passageiros = lista_rotas->n_passageiros;
+    rotas_t *maior_rota = NULL;
+    int maior_passageiros = -1;
     
     while(lista_rotas){
         if(lista_rotas->n_passageiros >= maior_passageiros){
@@ -306,10 +305,10 @@ void mostrar_rota_maior_n_passageiros(rotas_t *lista_rotas){
 
 }
 
-void mostrar_rota_menor_n_pasageiros(rotas_t *lista_rotas){
+void mostrar_rota_menor_n_passageiros(rotas_t *lista_rotas){
     // cálculo da menor rota
-    rotas_t *menor_rota = lista_rotas; // inicialmente, a maior rota é a primeira registrada
-    int menor_passageiros = lista_rotas->n_passageiros;
+    rotas_t *menor_rota = NULL;
+    int menor_passageiros = 99999999;
     
     while(lista_rotas){
         if(lista_rotas->n_passageiros <= menor_passageiros){

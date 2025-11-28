@@ -6,8 +6,10 @@ void salvar_dados_arq_bin_aeronaves(aeronaves_t *lista, char* nome_arq){
     
     fp_arquivo = fopen(nome_arq, "wb");
 
-    if (!fp_arquivo)
+    if (fp_arquivo == NULL){
         printf("Erro ao tentar abrir arquivo bin %s.\n", nome_arq);
+        return;
+    }
 
     while (lista){
         fwrite(lista, sizeof(aeronaves_t), 1, fp_arquivo);
@@ -23,8 +25,13 @@ void ler_dados_arq_bin_aeronaves(char* nome_arq, aeronaves_t **lista){
     
     fp_arquivo = fopen(nome_arq, "rb");
 
+    if (fp_arquivo == NULL) {
+        printf("Erro ao tentar abrir o arquivo %s\n",nome_arq);
+        return;
+    }
+
     while(!feof(fp_arquivo)){
-        aeronave = calloc(1, sizeof(aeronaves_t));
+        aeronave = (aeronaves_t*)calloc(1, sizeof(aeronaves_t));
         fread(aeronave, sizeof(aeronaves_t), 1, fp_arquivo);
         aeronave->prox = NULL;
 
@@ -44,8 +51,10 @@ void salvar_dados_arq_bin_rotas(rotas_t *lista, char* nome_arq){
 
     fp_arquivo = fopen(nome_arq, "wb");
 
-    if (!fp_arquivo)
+    if (fp_arquivo == NULL){
         printf("Erro ao tentar abrir arquivo bin %s.\n", nome_arq);
+        return;
+    }
 
     while(lista){
         fwrite(lista, sizeof(rotas_t), 1, fp_arquivo);
@@ -62,8 +71,13 @@ void ler_dados_arq_bin_rotas(char* nome_arq, rotas_t **lista){
 
     fp_arquivo = fopen(nome_arq, "rb");
 
+    if (fp_arquivo == NULL) {
+        printf("Erro ao tentar abrir o arquivo %s\n",nome_arq);
+        return;
+    }
+
     while(!feof(fp_arquivo)){
-        rota = calloc(1, sizeof(rotas_t));
+        rota = (rotas_t*)calloc(1, sizeof(rotas_t));
         fread(rota, sizeof(rotas_t), 1, fp_arquivo);
         rota->prox = NULL;
 

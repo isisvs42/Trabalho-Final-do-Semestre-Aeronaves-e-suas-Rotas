@@ -7,6 +7,12 @@ void exportar_dados_arquivo_texto_aeronaves(string nome_arq, aeronaves_t *lista)
     FILE *fp_arquivo = NULL;
     fp_arquivo = fopen(nome_arq, "w");
 
+    if (!fp_arquivo) {
+        printf("Erro ao abrir arquivo %s\n", nome_arq);
+        return;
+    }
+
+
     while(lista){
         mostrar_aeronave(lista, fp_arquivo);
         lista = lista->prox;
@@ -18,6 +24,11 @@ void exportar_dados_arquivo_texto_aeronaves(string nome_arq, aeronaves_t *lista)
 void exportar_dados_arquivo_texto_rotas(string nome_arq, rotas_t *lista){
     FILE *fp_arquivo = NULL;
     fp_arquivo = fopen(nome_arq, "w");
+
+    if (!fp_arquivo) {
+        printf("Erro ao abrir arquivo %s\n", nome_arq);
+        return;
+    }
 
     while(lista){
         mostrar_rota(lista, fp_arquivo);
