@@ -1,0 +1,36 @@
+Identificacao.................... 3003
+Fabricante....................... Embraer
+Modelo........................... E195-E2
+Prefixo.......................... PR-EMB
+Ano de fabricacao................ 2019
+Tipo............................. Passageiro
+Situacao......................... Em operacao
+Tripulacao necessaria............ 5
+
+Identificacao.................... 2002
+Fabricante....................... Boeing
+Modelo........................... 747-8F
+Prefixo.......................... PP-CGF
+Ano de fabricacao................ 2010
+Tipo............................. Carga
+Situacao......................... Em manutencao
+Tripulacao necessaria............ 4
+
+Identificacao.................... 1001
+Fabricante....................... Airbus
+Modelo........................... A320-214
+Prefixo.......................... PR-AXY
+Ano de fabricacao................ 2014
+Tipo............................. Passageiro
+Situacao......................... Em operacao
+Tripulacao necessaria............ 6
+
+Identificacao.................... 4004
+Fabricante....................... Airbus
+Modelo........................... A330-200F
+Prefixo.......................... PR-CAR
+Ano de fabricacao................ 2015
+Tipo............................. Carga
+Situacao......................... Em operacao
+Tripulacao necessaria............ 3
+

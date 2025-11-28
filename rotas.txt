@@ -1,0 +1,99 @@
+Codigo da aeronave alocada........ 4004
+Codigo da rota.................... 401
+Data.............................. 16/04/2025
+Hora.............................. 13:30
+Origem............................ RIO DE JANEIRO
+Destino........................... BOGOTA
+Tempo de voo (em h)............... 6
+Combustivel necessario............ 18000.00
+N passageiros..................... 0
+N carga........................... 25000
+
+Codigo da aeronave alocada........ 4004
+Codigo da rota.................... 400
+Data.............................. 10/04/2025
+Hora.............................. 04:55
+Origem............................ CAMPINAS
+Destino........................... MADRID
+Tempo de voo (em h)............... 10
+Combustivel necessario............ 26000.00
+N passageiros..................... 0
+N carga........................... 38000
+
+Codigo da aeronave alocada........ 3003
+Codigo da rota.................... 302
+Data.............................. 28/03/2025
+Hora.............................. 19:10
+Origem............................ CURITIBA
+Destino........................... BRASILIA
+Tempo de voo (em h)............... 2
+Combustivel necessario............ 3400.00
+N passageiros..................... 128
+N carga........................... 0
+
+Codigo da aeronave alocada........ 1001
+Codigo da rota.................... 101
+Data.............................. 19/01/2025
+Hora.............................. 07:40
+Origem............................ BRASILIA
+Destino........................... RIO DE JANEIRO
+Tempo de voo (em h)............... 1
+Combustivel necessario............ 2100.00
+N passageiros..................... 154
+N carga........................... 0
+
+Codigo da aeronave alocada........ 1001
+Codigo da rota.................... 100
+Data.............................. 12/01/2025
+Hora.............................. 14:25
+Origem............................ SAO PAULO
+Destino........................... RECIFE
+Tempo de voo (em h)............... 3
+Combustivel necessario............ 5200.00
+N passageiros..................... 162
+N carga........................... 0
+
+Codigo da aeronave alocada........ 1001
+Codigo da rota.................... 102
+Data.............................. 25/01/2025
+Hora.............................. 22:10
+Origem............................ SAO PAULO
+Destino........................... PORTO ALEGRE
+Tempo de voo (em h)............... 1
+Combustivel necessario............ 2600.00
+N passageiros..................... 143
+N carga........................... 0
+
+Codigo da aeronave alocada........ 3003
+Codigo da rota.................... 300
+Data.............................. 03/03/2025
+Hora.............................. 06:20
+Origem............................ FLORIANOPOLIS
+Destino........................... SAO PAULO
+Tempo de voo (em h)............... 1
+Combustivel necessario............ 1800.00
+N passageiros..................... 121
+N carga........................... 0
+
+Codigo da aeronave alocada........ 3003
+Codigo da rota.................... 301
+Data.............................. 12/03/2025
+Hora.............................. 11:45
+Origem............................ BELEM
+Destino........................... FORTALEZA
+Tempo de voo (em h)............... 2
+Combustivel necessario............ 3200.00
+N passageiros..................... 136
+N carga........................... 0
+
+Codigo da aeronave alocada........ 4004
+Codigo da rota.................... 402
+Data.............................. 29/04/2025
+Hora.............................. 21:05
+Origem............................ SAO PAULO
+Destino........................... SANTIAGO
+Tempo de voo (em h)............... 4
+Combustivel necessario............ 14000.00
+N passageiros..................... 0
+N carga........................... 31000
+

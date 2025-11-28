@@ -157,7 +157,20 @@ void mostrar_rota(rotas_t *rota, FILE *fp){
     fprintf(fp, "\n");
 }
 
-void listagem_rotas_data(data_t inicio, data_t fim, rotas_t *lista_rotas){
+void listagem_rotas_data(data_t data, rotas_t *lista_rotas){
+    bool flag = false;
+    while(lista_rotas){
+        if(data.numero == lista_rotas->data.numero){
+            mostrar_rota(lista_rotas, stdout);
+            flag = true;
+        }
+        lista_rotas = lista_rotas->prox;
+    }
+    if(!flag)
+        printf("Nenhuma rota encontrada.\n"); 
+}
+
+void listagem_rotas_intervalo_data(data_t inicio, data_t fim, rotas_t *lista_rotas){
     bool flag = false;
     while(lista_rotas){
         if(inicio.numero <= lista_rotas->data.numero && lista_rotas->data.numero <= fim.numero){
@@ -288,7 +301,7 @@ void listagem_rotas_menor_n_passageiros(rotas_t *menores_rotas, int k){
 void mostrar_rota_maior_n_passageiros(rotas_t *lista_rotas){
     // cálculo da maior rota
     rotas_t *maior_rota = NULL;
-    int maior_passageiros = -1;
+    int maior_passageiros = 0;
     
     while(lista_rotas){
         if(lista_rotas->n_passageiros >= maior_passageiros){
@@ -311,7 +324,7 @@ void mostrar_rota_menor_n_passageiros(rotas_t *lista_rotas){
     int menor_passageiros = 99999999;
     
     while(lista_rotas){
-        if(lista_rotas->n_passageiros <= menor_passageiros){
+        if(lista_rotas->n_passageiros <= menor_passageiros && lista_rotas->n_passageiros != 0){ // diferente de 0 exclui as aeronaves de carga
             menor_passageiros = lista_rotas->n_passageiros;
             menor_rota = lista_rotas;
         }

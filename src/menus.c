@@ -10,6 +10,10 @@ int menu(){
     printf("3. Listar todas as aeronaves cadastradas;\n");
     printf("4. Apagar aeronave;\n");
     printf("5. Exportar dados para arquivo .txt;\n");
+    printf("6. Percentual de Voos por Destino em Intervalo de Datas;\n");
+    printf("7. Percentual de Voos Realizado por Aeronave;\n");
+    printf("8. Quantidade de Vezes que uma Aeronave entrou em Manutencao;\n");
+    printf("9. Consumo Total de Combustivel em Intervalo de Datas;\n");
     printf("0. Sair do programa.\n");
     printf("::::::: ");
     scanf("%d", &opc);
@@ -73,12 +77,13 @@ int submenu_localizar_aeronaves(){
 int submenu_localizar_rotas(){
     limpar_terminal();
     int opc;
-    printf("1. Listagem de Rotas em Intervalo de Datas;\n");
-    printf("2. Listagem de Rotas por Destino;\n");
-    printf("3. Listagem de Rotas por Origem;\n");
-    printf("4. Listagem de Rotas por Numero de Passageiros;\n");
-    printf("5. Mostrar Rota com Maior Numero de Passageiros;\n");
-    printf("6. Mostrar Rota com Menor Numero de Passageiros;\n");
+    printf("1. Listagem de Rotas por Data;\n"); // fazer
+    printf("2. Listagem de Rotas em Intervalo de Datas;\n"); // consertar
+    printf("3. Listagem de Rotas por Destino;\n");
+    printf("4. Listagem de Rotas por Origem;\n");
+    printf("5. Listagem de Rotas por Numero de Passageiros;\n");
+    printf("6. Mostrar Rota com Maior Numero de Passageiros;\n");
+    printf("7. Mostrar Rota com Menor Numero de Passageiros;\n");
     printf("0. Voltar.\n");
     printf("::::::: ");
     scanf("%d", &opc);

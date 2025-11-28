@@ -10,7 +10,7 @@
 int main(){
     bool carga;
     string nome;
-    data_t inicio, fim;
+    data_t inicio, fim, data;
     fabricantes_t fabricante;
     situacao_t situacao;
     tipos_t tipo;
@@ -209,7 +209,7 @@ int main(){
                                         break;
 
                                     case 3: // tipo
-                                        printf("Digite o TIPO (1 = carga e // 2 = passageiro): ");
+                                        printf("Digite o TIPO (1 = carga e 2 = passageiro): ");
                                         scanf("%i", &tipo);
                                         getchar();
                                         listagem_aeronaves_tipo(tipo, lista_aeronaves);
@@ -234,7 +234,7 @@ int main(){
                                         break;
 
                                     case 6: // situacao
-                                        printf("Digite a SITUACAO: ");
+                                        printf("Digite a SITUACAO (1 = em operacao/2 = em manutencao): ");
                                         scanf("%i", &situacao);
                                         getchar();
                                         listagem_aeronaves_situacao(situacao, lista_aeronaves);
@@ -259,21 +259,33 @@ int main(){
                                 opc_sub2 = submenu_localizar_rotas();
                                 
                                 switch (opc_sub2){
-                                    case 1: // data
-                                        printf("Digite uma DATA para o INICIO (dd/mm/aaa): ");
+                                    case 1:
+                                        printf("Digite uma DATA (dd/mm/aaaa): ");
+                                        scanf("%d/%d/%d", &data.dia, &data.mes, &data.ano);
+                                        getchar();
+                                        data.numero = data.ano*10000 + data.mes*100 + data.dia;
+
+                                        listagem_rotas_data(data, lista_rotas);
+                                        pressione_enter();
+                                        break;
+
+                                    case 2: // data
+                                        printf("Digite uma DATA para o INICIO (dd/mm/aaaa): ");
                                         scanf("%d/%d/%d", &inicio.dia, &inicio.mes, &inicio.ano);
+                                        getchar();
                                         inicio.numero = inicio.ano*10000 + inicio.mes*100 + inicio.dia;
 
-                                        printf("Digite uma DATA para o FIM (dd/mm/aaa): ");
+                                        printf("Digite uma DATA para o FIM (dd/mm/aaaa): ");
                                         scanf("%d/%d/%d", &fim.dia, &fim.mes, &fim.ano);
+                                        getchar();
                                         fim.numero = fim.ano*10000 + fim.mes*100 + fim.dia;
 
-                                        listagem_rotas_data(inicio, fim, lista_rotas);
+                                        listagem_rotas_intervalo_data(inicio, fim, lista_rotas);
                                         pressione_enter();
 
                                         break;
 
-                                    case 2: // destino 
+                                    case 3: // destino 
                                         printf("Digite um DESTINO: ");
                                         fgets(nome, T_STRING, stdin);
                                         retirar_enter(nome);
@@ -282,7 +294,7 @@ int main(){
                                         pressione_enter();
                                         break;
 
-                                    case 3: // origem
+                                    case 4: // origem
                                         printf("Digite um ORIGEM: ");
                                         fgets(nome, T_STRING, stdin);
                                         retirar_enter(nome);
@@ -291,7 +303,7 @@ int main(){
                                         pressione_enter();
                                         break;
 
-                                    case 4: // numero de passageiros
+                                    case 5: // numero de passageiros
                                         printf("Digite um NUMERO DE PASSAGEIROS: ");
                                         scanf("%d", &numero);
                                         getchar();
@@ -299,7 +311,7 @@ int main(){
                                         pressione_enter();
                                         break;
 
-                                    case 5: // maior numero de passageiros
+                                    case 6: // maior numero de passageiros
                                     
                                         /*numero = calculo_rotas_com_maior_n_pass(&maiores_rotas, lista_aeronaves, lista_rotas);
                                         listagem_rotas_maior_n_passageiros(maiores_rotas, numero);
@@ -310,7 +322,7 @@ int main(){
 
                                         break;
 
-                                    case 6: // menor numero de passageiros
+                                    case 7: // menor numero de passageiros
 
                                         /*numero = calculo_rotas_com_menor_n_pass(&menores_rotas, lista_aeronaves, lista_rotas);
                                         listagem_rotas_menor_n_passageiros(menores_rotas, numero);
@@ -378,6 +390,20 @@ int main(){
                     }
 
                 } while (opc_sub);
+                break;
+
+            case 6: // PERCENTUAL DE VOOS POR DESTINO EM INTERVALO DE DATA
+                break;
+
+            case 7: // PERCENTUAL DE VOOS REALIZADO POR AERONAVE
+                break;
+
+            case 8: // QUANTIDADE DE VEZES QUE UMA AERONAVE ENTROU EM MANUTENÇÃO
+                printf("Digite o código da aeronave para descobrir quantas vezes ela entrou em manutencao: ");
+                scanf("%u", &codigo_aeronave);
+                aeronave = localizar_aeronave_por_codigo(codigo_aeronave, lista_aeronaves);
+                printf("Essa aeronave entrou em manutencao %i vezes.\n", aeronave->vezes_que_entrou_em_manutenção);
+                pressione_enter();
                 break;
 
             default:
