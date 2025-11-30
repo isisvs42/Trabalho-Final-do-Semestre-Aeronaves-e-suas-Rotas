@@ -450,6 +450,7 @@ int main(){
             case 8: // QUANTIDADE DE VEZES QUE UMA AERONAVE ENTROU EM MANUTENÇÃO
                 printf("Digite o código da aeronave para descobrir quantas vezes ela entrou em manutencao: ");
                 scanf("%u", &codigo_aeronave);
+                getchar();
                 aeronave = localizar_aeronave_por_codigo(codigo_aeronave, lista_aeronaves);
                 printf("Essa aeronave entrou em manutencao %i vezes.\n", aeronave->vezes_que_entrou_em_manutenção);
                 pressione_enter();
