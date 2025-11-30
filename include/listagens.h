@@ -19,8 +19,11 @@ void listagem_aeronaves_modelo(string modelo, aeronaves_t *lista);
 void listagem_aeronaves_ano_fabricacao(int ano, aeronaves_t *lista);
 void listagem_aeronaves_situacao(situacao_t situacao, aeronaves_t *lista);
 
-// listagens de rotas
+// mostrar rotas
+void listar_rotas(rotas_t *lista);
 void mostrar_rota(rotas_t *rota, FILE *fp);
+
+// listagens de rotas
 void listagem_rotas_data(data_t data, rotas_t *lista_rotas);
 void listagem_rotas_intervalo_data(data_t inicio, data_t fim, rotas_t *lista_rotas);
 void listagem_rotas_destino(string destino, rotas_t *lista_rotas);
