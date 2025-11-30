@@ -7,7 +7,7 @@ int menu(){
     int opc;
     printf("1. Cadastrar;\n");
     printf("2. Localizar;\n");
-    printf("3. Listar todas as aeronaves cadastradas;\n");
+    printf("3. Listar tudo;\n");
     printf("4. Apagar aeronave;\n");
     printf("5. Exportar dados para arquivo .txt;\n");
     printf("6. Percentual de Voos por Destino em Intervalo de Datas;\n");
@@ -77,13 +77,25 @@ int submenu_localizar_aeronaves(){
 int submenu_localizar_rotas(){
     limpar_terminal();
     int opc;
-    printf("1. Listagem de Rotas por Data;\n"); // fazer
-    printf("2. Listagem de Rotas em Intervalo de Datas;\n"); // consertar
+    printf("1. Listagem de Rotas por Data;\n");
+    printf("2. Listagem de Rotas em Intervalo de Datas;\n");
     printf("3. Listagem de Rotas por Destino;\n");
     printf("4. Listagem de Rotas por Origem;\n");
     printf("5. Listagem de Rotas por Numero de Passageiros;\n");
     printf("6. Mostrar Rota com Maior Numero de Passageiros;\n");
     printf("7. Mostrar Rota com Menor Numero de Passageiros;\n");
+    printf("0. Voltar.\n");
+    printf("::::::: ");
+    scanf("%d", &opc);
+    getchar();
+    return opc;
+}
+
+int submenu_listar_tudo(){
+    limpar_terminal();
+    int opc;
+    printf("1. Listar Todas as Aeronaves Cadastradas;\n");
+    printf("2. Listar Todas as Rotas Cadastradas;\n");
     printf("0. Voltar.\n");
     printf("::::::: ");
     scanf("%d", &opc);

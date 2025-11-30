@@ -148,7 +148,7 @@ rotas_t *nova_rota(unsigned int codigo_aeronave, unsigned int codigo_rota, bool 
 
     rota->codigo_da_aeronave = codigo_aeronave;
     rota->codigo_da_rota = codigo_rota;
-
+    
     printf("Data (dd/mm/aaaa): ");
     scanf("%d/%d/%d", &rota->data.dia, &rota->data.mes, &rota->data.ano);
     getchar();

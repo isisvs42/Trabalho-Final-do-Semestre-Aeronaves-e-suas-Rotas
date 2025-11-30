@@ -4,6 +4,7 @@
 #include "./include/exportar_txt.h"
 #include "./include/listagens.h"
 #include "./include/menus.h"
+#include "./include/quantidades.h"
 #include "./include/tipos.h"
 #include "./include/uteis.h"
 
@@ -344,6 +345,7 @@ int main(){
 
                         case 0: 
                             printf("Voltando ao menu principal...\n");
+                            pressione_enter();
                             break;
                         
                         default:
@@ -353,9 +355,31 @@ int main(){
                 } while (opc_sub);
                 break;
 
-            case 3: // LISTAR TODAS AS AERONAVES CADASTRADAS
-                listar_aeronaves(lista_aeronaves);
-                pressione_enter();
+            case 3: // LISTAR TUDO
+                do {
+                    opc_sub = submenu_listar_tudo();
+
+                    switch(opc_sub){
+                        case 1: // LISTAR TODAS AS AERONAVES
+                            listar_aeronaves(lista_aeronaves);
+                            pressione_enter();
+                            break;
+
+                        case 2: // LISTAR TODAS AS ROTAS
+                            listar_rotas(lista_rotas);
+                            pressione_enter();
+                            break;
+
+                        case 0:
+                            printf("Voltando ao menu anterior.\n");
+                            pressione_enter();
+                            break;
+                        
+                        default:
+                            printf("Isso nao eh uma opcao.\n");
+                            pressione_enter();
+                    }
+                } while(opc_sub);
                 break;
 
             case 4: // APAGAR AERONAVE
@@ -379,6 +403,7 @@ int main(){
                             fgets(nome, T_STRING, stdin);
                             retirar_enter(nome);
                             exportar_dados_arquivo_texto_aeronaves(nome, lista_aeronaves);
+                            pressione_enter();
                             break;
 
                         case 2: // exportar rotas
@@ -386,16 +411,40 @@ int main(){
                             fgets(nome, T_STRING, stdin);
                             retirar_enter(nome);
                             exportar_dados_arquivo_texto_rotas(nome, lista_rotas);
+                            pressione_enter();
                             break;
+
+                        case 0:
+                            printf("Voltando ao menu principal...\n");
+                            pressione_enter();
+                            break;
+
+                        default:
+                            printf("Isso nao eh uma opcao.\n");
+                            pressione_enter();
                     }
 
                 } while (opc_sub);
                 break;
 
             case 6: // PERCENTUAL DE VOOS POR DESTINO EM INTERVALO DE DATA
+                printf("Digite uma DATA para o INICIO (dd/mm/aaaa): ");
+                scanf("%d/%d/%d", &inicio.dia, &inicio.mes, &inicio.ano);
+                getchar();
+                inicio.numero = inicio.ano*10000 + inicio.mes*100 + inicio.dia;
+
+                printf("Digite uma DATA para o FIM (dd/mm/aaaa): ");
+                scanf("%d/%d/%d", &fim.dia, &fim.mes, &fim.ano);
+                getchar();
+                fim.numero = fim.ano*10000 + fim.mes*100 + fim.dia;
+
+                percentual_de_voos_por_destino_em_intervalo_de_datas(inicio, fim, lista_rotas);
+                pressione_enter();
                 break;
 
             case 7: // PERCENTUAL DE VOOS REALIZADO POR AERONAVE
+                percentual_de_voos_realizado_por_aeronave(lista_aeronaves, lista_rotas);
+                pressione_enter();
                 break;
 
             case 8: // QUANTIDADE DE VEZES QUE UMA AERONAVE ENTROU EM MANUTENÇÃO
@@ -403,6 +452,21 @@ int main(){
                 scanf("%u", &codigo_aeronave);
                 aeronave = localizar_aeronave_por_codigo(codigo_aeronave, lista_aeronaves);
                 printf("Essa aeronave entrou em manutencao %i vezes.\n", aeronave->vezes_que_entrou_em_manutenção);
+                pressione_enter();
+                break;
+
+            case 9: // CONSUMO TOTAL DE COMBUSTÍVEL EM INTERVALO DE DATAS
+                printf("Digite uma DATA para o INICIO (dd/mm/aaaa): ");
+                scanf("%d/%d/%d", &inicio.dia, &inicio.mes, &inicio.ano);
+                getchar();
+                inicio.numero = inicio.ano*10000 + inicio.mes*100 + inicio.dia;
+
+                printf("Digite uma DATA para o FIM (dd/mm/aaaa): ");
+                scanf("%d/%d/%d", &fim.dia, &fim.mes, &fim.ano);
+                getchar();
+                fim.numero = fim.ano*10000 + fim.mes*100 + fim.dia;
+
+                consumo_total_de_combustivel_em_intervalo_de_datas(inicio, fim, lista_rotas);
                 pressione_enter();
                 break;
 

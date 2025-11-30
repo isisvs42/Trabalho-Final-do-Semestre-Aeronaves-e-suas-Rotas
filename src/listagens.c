@@ -141,7 +141,7 @@ void listagem_aeronaves_situacao(situacao_t situacao, aeronaves_t *lista){
         printf("Nenhuma aeronave encontrada.\n");
 }
 
-// listagens de rotas
+// mostrar rotas
 void mostrar_rota(rotas_t *rota, FILE *fp){
     fprintf(fp, "Codigo da aeronave alocada........ %u\n", rota->codigo_da_aeronave);
     fprintf(fp, "Codigo da rota.................... %u\n", rota->codigo_da_rota);
@@ -157,6 +157,14 @@ void mostrar_rota(rotas_t *rota, FILE *fp){
     fprintf(fp, "\n");
 }
 
+void listar_rotas(rotas_t *lista){
+    while(lista){
+        mostrar_rota(lista, stdout);
+        lista = lista->prox;
+    }
+}
+
+// listagens de rotas
 void listagem_rotas_data(data_t data, rotas_t *lista_rotas){
     bool flag = false;
     while(lista_rotas){

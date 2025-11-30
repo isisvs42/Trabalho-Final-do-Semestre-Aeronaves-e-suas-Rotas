@@ -46,6 +46,7 @@ typedef struct rotas {
     hora_t hora;
     string origem;
     string destino;
+    int codigo_destino;
     unsigned int tempo_estimado_de_voo;
     float combustivel_necessario;
     unsigned int n_passageiros;
