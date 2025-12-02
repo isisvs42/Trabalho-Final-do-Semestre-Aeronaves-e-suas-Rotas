@@ -13,12 +13,12 @@ void listar_aeronaves(aeronaves_t *lista){
 
 void mostrar_aeronave(aeronaves_t *aeronave, FILE *fp){
     fprintf(fp, "Identificacao.................... %u\n", aeronave->codigo_aeronave);
-    fprintf(fp, "Fabricante....................... "); mostrar_fabricante(aeronave->fabricante, fp);
+    fprintf(fp, "Fabricante....................... "); mostrar_fabricante(aeronave->fabricante, fp); fprintf(fp, "\n");
     fprintf(fp, "Modelo........................... %s\n", aeronave->modelo);
     fprintf(fp, "Prefixo.......................... %s\n", aeronave->prefixo);
     fprintf(fp, "Ano de fabricacao................ %i\n", aeronave->ano_de_fabricacao);
-    fprintf(fp, "Tipo............................. "); mostrar_tipo(aeronave->tipo, fp);
-    fprintf(fp, "Situacao......................... "); mostrar_situacao(aeronave->situacao, fp);
+    fprintf(fp, "Tipo............................. "); mostrar_tipo(aeronave->tipo, fp); fprintf(fp, "\n");
+    fprintf(fp, "Situacao......................... "); mostrar_situacao(aeronave->situacao, fp); fprintf(fp, "\n");
     fprintf(fp, "Tripulacao necessaria............ %i\n", aeronave->tripulacao_necessaria);
     fprintf(fp, "\n");
 }
@@ -26,15 +26,15 @@ void mostrar_aeronave(aeronaves_t *aeronave, FILE *fp){
 void mostrar_fabricante(fabricantes_t fabricante, FILE *fp){
     switch (fabricante){
         case AIRBUS:
-            fprintf(fp, "Airbus\n");
+            fprintf(fp, "Airbus");
             break;
         
         case BOEING:
-            fprintf(fp, "Boeing\n");
+            fprintf(fp, "Boeing");
             break;
 
         case EMBRAER:
-            fprintf(fp, "Embraer\n");
+            fprintf(fp, "Embraer");
             break;
     }
 }
@@ -42,10 +42,10 @@ void mostrar_fabricante(fabricantes_t fabricante, FILE *fp){
 void mostrar_tipo(tipos_t tipo, FILE *fp){
     switch(tipo){
         case CARGA:
-            fprintf(fp, "Carga\n");
+            fprintf(fp, "Carga");
             break;
         case PASSAGEIRO:
-            fprintf(fp, "Passageiro\n");
+            fprintf(fp, "Passageiro");
             break;
     }
 }
@@ -53,11 +53,11 @@ void mostrar_tipo(tipos_t tipo, FILE *fp){
 void mostrar_situacao(situacao_t situacao, FILE *fp){
     switch (situacao){
         case OPERACAO:
-            fprintf(fp, "Em operacao\n");
+            fprintf(fp, "Em operacao");
             break;
         
         case MANUTENCAO:
-            fprintf(fp, "Em manutencao\n");
+            fprintf(fp, "Em manutencao");
             break;
         }
 }
@@ -150,7 +150,7 @@ void mostrar_rota(rotas_t *rota, FILE *fp){
     fprintf(fp, "Origem............................ %s\n", rota->origem);
     fprintf(fp, "Destino........................... %s\n", rota->destino);
     fprintf(fp, "Tempo de voo (em h)............... %u\n", rota->tempo_estimado_de_voo);
-    fprintf(fp, "Combustivel necessario............ %.2f\n", rota->combustivel_necessario);
+    fprintf(fp, "Combustivel necessario (em L)..... %.2f\n", rota->combustivel_necessario);
     fprintf(fp, "N passageiros..................... %u\n", rota->n_passageiros);
     fprintf(fp, "N carga........................... %u\n", rota->n_carga);
     //mostrar_nomes_tripulacao(rota->identificacao, rota, lista_aeronaves);

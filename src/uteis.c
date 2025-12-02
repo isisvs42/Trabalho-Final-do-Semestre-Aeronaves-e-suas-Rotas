@@ -2,7 +2,7 @@
 
 // úteis
 void pressione_enter(){
-    printf("\nPressione ENTER para continuar... ");
+    printf("Pressione ENTER para continuar... ");
     getchar();
 }
 

@@ -2,7 +2,6 @@
 #define TIPOS_H
 
 #define T_STRING         20
-#define T_MAX_AERONAVES 100
 #define T_TRIPULACAO     50
 
 typedef char string[T_STRING];

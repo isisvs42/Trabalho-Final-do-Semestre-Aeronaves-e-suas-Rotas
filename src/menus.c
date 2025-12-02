@@ -9,7 +9,7 @@ int menu(){
     printf("2. Localizar;\n");
     printf("3. Listar tudo;\n");
     printf("4. Apagar aeronave;\n");
-    printf("5. Exportar dados para arquivo .txt;\n");
+    printf("5. Exportar dados;\n");
     printf("6. Percentual de Voos por Destino em Intervalo de Datas;\n");
     printf("7. Percentual de Voos Realizado por Aeronave;\n");
     printf("8. Quantidade de Vezes que uma Aeronave entrou em Manutencao;\n");
@@ -103,7 +103,20 @@ int submenu_listar_tudo(){
     return opc;
 }
 
-int submenu_exportar_dados_para_arquivo_txt(void){
+int submenu_exportar_dados(){
+    limpar_terminal();
+    int opc;
+    printf("1. Exportar dados para arquivo txt;\n");
+    printf("2. Exportar dados para planilha Excel (csv);\n");
+    printf("3. Exportar para HTMl;\n");
+    printf("0. Voltar.\n");
+    printf("::::::: ");
+    scanf("%d", &opc);
+    getchar();
+    return opc;
+}
+
+int submenu_exportar_quais_dados(){
     limpar_terminal();
     int opc;
     printf("1. Exportar AERONAVES;\n");
@@ -114,3 +127,4 @@ int submenu_exportar_dados_para_arquivo_txt(void){
     getchar();
     return opc;
 }
+

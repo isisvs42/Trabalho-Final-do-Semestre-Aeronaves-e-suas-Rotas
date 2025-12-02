@@ -63,22 +63,26 @@ void percentual_de_voos_por_destino_em_intervalo_de_datas(data_t inicio, data_t 
             copia2 = lista_rotas;
             voos = 0;
 
-            if(!destino_ja_foi_calculado(copia, lista_rotas, &destinos, &qtd_destinos)){
+            if(inicio.numero <= copia->data.numero && copia->data.numero <= fim.numero){
 
-                // cálculo do total de voos para o destino
-                while(copia2){
+                if(!destino_ja_foi_calculado(copia, lista_rotas, &destinos, &qtd_destinos)){
 
-                    if(!strcmp(copia->destino, copia2->destino))
-                        voos++;
+                    // cálculo do total de voos para o destino
+                    while(copia2){
 
-                    copia2 = copia2->prox;
+                        if(!strcmp(copia->destino, copia2->destino))
+                            voos++;
+
+                        copia2 = copia2->prox;
+                    }
+
+                    // cálculo do percentual
+                    percentual = ((float)voos/tot_voos)*100;
+                    printf("Destino %s...................... %05.2f%%\n", copia->destino, percentual);
                 }
-
-                // cálculo do percentual
-                percentual = ((float)voos/tot_voos)*100;
-                printf("Destino %s...................... %05.2f%%\n", copia->destino, percentual);
+                
             }
-            
+
             copia = copia->prox;
         }
 
@@ -102,7 +106,7 @@ bool destino_ja_foi_calculado(rotas_t *rota, rotas_t *lista_rotas, string **dest
         }
 
         *destinos = realloc(*destinos, sizeof(string)*((*qtd_destinos)+1));
-        strcpy(*(*destinos+*qtd_destinos), rota->destino);
+        strcpy(*(*destinos + (*qtd_destinos)), rota->destino);
         *qtd_destinos += 1;
     }
     return false;

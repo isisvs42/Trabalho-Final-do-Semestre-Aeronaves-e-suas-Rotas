@@ -1,7 +1,7 @@
 #include "./include/apagar.h"
 #include "./include/arquivo_bin.h"
 #include "./include/cadastros.h"
-#include "./include/exportar_txt.h"
+#include "./include/exportar_dados.h"
 #include "./include/listagens.h"
 #include "./include/menus.h"
 #include "./include/quantidades.h"
@@ -32,7 +32,7 @@ int main(){
             case 0:
                 salvar_dados_arq_bin_aeronaves(lista_aeronaves, "aeronaves.bin");
                 salvar_dados_arq_bin_rotas(lista_rotas, "rotas.bin");
-                printf("Encerrando programa...");
+                printf("Encerrando programa...\n");
                 pressione_enter();
                 break;
 
@@ -393,25 +393,80 @@ int main(){
                 pressione_enter();
                 break;
             
-            case 5: // EXPORTAR DADOS PARA ARQUIVO .TXT
+            case 5: // EXPORTAR DADOS
                 do {
-                    opc_sub = submenu_exportar_dados_para_arquivo_txt();
+                    opc_sub = submenu_exportar_dados();
                     
                     switch (opc_sub){
-                        case 1: // exportar aeronaves
-                            printf("Digite um nome para o arquivo ser gerado (AERONAVES): ");
-                            fgets(nome, T_STRING, stdin);
-                            retirar_enter(nome);
-                            exportar_dados_arquivo_texto_aeronaves(nome, lista_aeronaves);
-                            pressione_enter();
+                        case 1: // ARQUIVO TXT
+                            do {
+                                opc_sub2 = submenu_exportar_quais_dados();
+                                switch (opc_sub2){
+                                    case 1: // exportar aeronaves
+                                        printf("Digite um nome para o arquivo ser gerado (AERONAVES): ");
+                                        fgets(nome, T_STRING, stdin);
+                                        retirar_enter(nome);
+                                        strcat(nome, ".txt");
+                                        exportar_dados_arquivo_texto_aeronaves(nome, lista_aeronaves);
+                                        pressione_enter();
+                                        break;
+
+                                    case 2: // exportar rotas
+                                        printf("Digite um nome para o arquivo ser gerado (ROTAS): ");
+                                        fgets(nome, T_STRING, stdin);
+                                        retirar_enter(nome);
+                                        strcat(nome, ".txt");
+                                        exportar_dados_arquivo_texto_rotas(nome, lista_rotas);
+                                        pressione_enter();
+                                        break;
+
+                                    case 0:
+                                        printf("Voltando ao menu anterior...\n");
+                                        pressione_enter();
+                                        break;
+
+                                    default:
+                                        printf("Isso nao eh uma opcao.\n");
+                                        pressione_enter();
+                                }
+                            } while (opc_sub2);
                             break;
 
-                        case 2: // exportar rotas
-                            printf("Digite um nome para o arquivo ser gerado (ROTAS): ");
-                            fgets(nome, T_STRING, stdin);
-                            retirar_enter(nome);
-                            exportar_dados_arquivo_texto_rotas(nome, lista_rotas);
-                            pressione_enter();
+                        case 2: // PLANILHA CSV
+                            do {
+                                opc_sub2 = submenu_exportar_quais_dados();
+                                switch (opc_sub2){
+                                    case 1: // exportar aeronaves
+                                        printf("Digite um nome para o arquivo ser gerado (AERONAVES): ");
+                                        fgets(nome, T_STRING, stdin);
+                                        retirar_enter(nome);
+                                        strcat(nome, ".csv");
+                                        exportar_dados_arquivo_csv_aeronaves(nome, lista_aeronaves);
+                                        pressione_enter();
+                                        break;
+
+                                    case 2: // exportar rotas
+                                        printf("Digite um nome para o arquivo ser gerado (ROTAS): ");
+                                        fgets(nome, T_STRING, stdin);
+                                        retirar_enter(nome);
+                                        strcat(nome, ".csv");
+                                        exportar_dados_arquivo_csv_rotas(nome, lista_rotas);
+                                        pressione_enter();
+                                        break;
+
+                                    case 0:
+                                        printf("Voltando ao menu anterior...\n");
+                                        pressione_enter();
+                                        break;
+
+                                    default:
+                                        printf("Isso nao eh uma opcao.\n");
+                                        pressione_enter();
+                                }
+                            } while (opc_sub2);
+                            break;
+
+                        case 3: // HTML
                             break;
 
                         case 0:
@@ -420,9 +475,10 @@ int main(){
                             break;
 
                         default:
-                            printf("Isso nao eh uma opcao.\n");
+                            printf("Isso nao eh uma opcao\n");
                             pressione_enter();
                     }
+                   
 
                 } while (opc_sub);
                 break;

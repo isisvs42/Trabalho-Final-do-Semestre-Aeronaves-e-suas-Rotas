@@ -10,6 +10,7 @@ int submenu_localizar(void);
 int submenu_localizar_aeronaves(void);
 int submenu_localizar_rotas(void);
 int submenu_listar_tudo(void);
-int submenu_exportar_dados_para_arquivo_txt(void);
+int submenu_exportar_dados(void);
+int submenu_exportar_quais_dados(void);
 
 #endif
