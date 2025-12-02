@@ -42,10 +42,10 @@ float consumo_total_de_combustivel_em_intervalo_de_datas(data_t inicio, data_t f
 }
 
 void percentual_de_voos_por_destino_em_intervalo_de_datas(data_t inicio, data_t fim, rotas_t* lista_rotas){
-    int tot_voos = 0, voos = 0, qtd_destinos = 0;
-    rotas_t *copia = lista_rotas, *copia2 = lista_rotas;
+    int tot_voos = 0, qtd_destinos = 0;
+    rotas_t *copia = lista_rotas;
     float percentual;
-    string *destinos = NULL;
+    verificacao_destinos_t *destinos = NULL;
 
     // cálculo do total de voos no intervalo de datas
     while(copia){
@@ -59,32 +59,21 @@ void percentual_de_voos_por_destino_em_intervalo_de_datas(data_t inicio, data_t 
     if (tot_voos > 0){
         copia = lista_rotas;
 
+        // cálculo do total de voos para o destino
         while(copia){
-            copia2 = lista_rotas;
-            voos = 0;
-
-            if(inicio.numero <= copia->data.numero && copia->data.numero <= fim.numero){
-
-                if(!destino_ja_foi_calculado(copia, lista_rotas, &destinos, &qtd_destinos)){
-
-                    // cálculo do total de voos para o destino
-                    while(copia2){
-
-                        if(!strcmp(copia->destino, copia2->destino))
-                            voos++;
-
-                        copia2 = copia2->prox;
-                    }
-
-                    // cálculo do percentual
-                    percentual = ((float)voos/tot_voos)*100;
-                    printf("Destino %s...................... %05.2f%%\n", copia->destino, percentual);
-                }
+            if(inicio.numero <= copia->data.numero && copia->data.numero <= fim.numero)
+                calculo_voos_destino(copia, &destinos, &qtd_destinos);
                 
-            }
-
             copia = copia->prox;
         }
+
+        // cálculo do percentual
+        printf("\n");
+        for(int i = 0; i < qtd_destinos; i++){
+            percentual = ((float)(destinos+i)->voos_pro_destino/tot_voos)*100;
+            printf("%05.2f%% dos voos foram para o destino %s\n", (destinos+i)->destino, percentual);
+        }
+        printf("\n");
 
     } else 
         printf("Nao ha voos para esse intervalo de datas.\n");
@@ -92,22 +81,35 @@ void percentual_de_voos_por_destino_em_intervalo_de_datas(data_t inicio, data_t 
     free(destinos);
 }
 
-bool destino_ja_foi_calculado(rotas_t *rota, rotas_t *lista_rotas, string **destinos, int *qtd_destinos){
-    if(*destinos == NULL){ // nenhum destino foi calculado ainda
-        *destinos = calloc(1, sizeof(string));
-        strcpy(*(*destinos), rota->destino);
-        *qtd_destinos += 1;
-        return false;
+void calculo_voos_destino(rotas_t *rota, verificacao_destinos_t **destinos, int *qtd_destinos){
+    verificacao_destinos_t novo_destino;
 
-    } else {
-        for(int i = 0; i < *qtd_destinos; i++){
-            if(!strcmp(rota->destino, *(*(destinos+i))))
-                return true;
-        }
+    if(!*destinos){ // nenhum destino foi calculado ainda
+        *destinos = calloc(1, sizeof(verificacao_destinos_t));
+        
+        strcpy(novo_destino.destino, rota->destino);
+        novo_destino.voos_pro_destino = 1;
 
-        *destinos = realloc(*destinos, sizeof(string)*((*qtd_destinos)+1));
-        strcpy(*(*destinos + (*qtd_destinos)), rota->destino);
+        *(*destinos) = novo_destino;
         *qtd_destinos += 1;
+        return;
     }
-    return false;
+
+    // se o destino já foi armazenado, incremento em 1 a quantidade de vezes que esse destino foi contado
+    for(int i = 0; i < *qtd_destinos; i++){
+        if(!strcmp(rota->destino, (*destinos+i)->destino)){
+            (*destinos+i)->voos_pro_destino++;
+            return;
+        }
+    }
+
+    // se esse destino não foi registrado ainda, vamos registrá-lo
+    *destinos = realloc(*destinos, sizeof(verificacao_destinos_t) * ((*qtd_destinos)+1));
+
+    strcpy(novo_destino.destino, rota->destino);
+    novo_destino.voos_pro_destino = 1;
+
+    *(*destinos+*qtd_destinos) = novo_destino;
+    *qtd_destinos += 1;
+
 }

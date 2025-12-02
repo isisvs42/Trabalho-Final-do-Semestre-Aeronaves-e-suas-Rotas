@@ -54,4 +54,9 @@ typedef struct rotas {
     struct rotas *prox;
 } rotas_t;
 
+typedef struct verificacao_destinos{
+    string destino;
+    int voos_pro_destino;
+} verificacao_destinos_t;
+
 #endif
