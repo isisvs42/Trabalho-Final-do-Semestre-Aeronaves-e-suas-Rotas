@@ -467,6 +467,37 @@ int main(){
                             break;
 
                         case 3: // HTML
+                            do {
+                                opc_sub2 = submenu_exportar_quais_dados();
+                                switch (opc_sub2){
+                                    case 1: // exportar aeronaves
+                                        printf("Digite um nome para o arquivo ser gerado (AERONAVES): ");
+                                        fgets(nome, T_STRING, stdin);
+                                        retirar_enter(nome);
+                                        strcat(nome, ".html");
+                                        exportar_dados_arquivo_html_aeronaves(nome, lista_aeronaves);
+                                        pressione_enter();
+                                        break;
+
+                                    case 2: // exportar rotas
+                                        printf("Digite um nome para o arquivo ser gerado (ROTAS): ");
+                                        fgets(nome, T_STRING, stdin);
+                                        retirar_enter(nome);
+                                        strcat(nome, ".html");
+                                        exportar_dados_arquivo_html_rotas(nome, lista_rotas);
+                                        pressione_enter();
+                                        break;
+
+                                    case 0:
+                                        printf("Voltando ao menu anterior...\n");
+                                        pressione_enter();
+                                        break;
+
+                                    default:
+                                        printf("Isso nao eh uma opcao.\n");
+                                        pressione_enter();
+                                }
+                            } while (opc_sub2);
                             break;
 
                         case 0:

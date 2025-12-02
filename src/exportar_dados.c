@@ -82,3 +82,46 @@ void exportar_dados_arquivo_csv_rotas(string nome_arq, rotas_t *lista){
 
     fclose(fp_arquivo);
 }
+
+void exportar_dados_arquivo_html_aeronaves(string nome_arq, aeronaves_t *lista){
+    FILE *fp_arquivo = NULL;
+    fp_arquivo = fopen(nome_arq, "w");
+
+    if (!fp_arquivo) {
+        printf("Erro ao abrir arquivo %s\n", nome_arq);
+        return;
+    }
+
+    fprintf(fp_arquivo, "<HTML> <HEAD> <TITLE> RELATÓRIO DE AERONAVES </TITLE> </HEAD> <BODY> \n");
+    fprintf(fp_arquivo, "<TABLE border = '1'> <TR>");
+    fprintf(fp_arquivo, "<TH> IDENTIFICAÇÃO </TH>"); // títulos das colunas
+    fprintf(fp_arquivo, "<TH> FABRICANTE </TH>");
+    fprintf(fp_arquivo, "<TH> MODELO </TH>");
+    fprintf(fp_arquivo, "<TH> PREFIXO </TH>");
+    fprintf(fp_arquivo, "<TH> ANO DE FABRICAÇÃO </TH>");
+    fprintf(fp_arquivo, "<TH> TIPO </TH>");
+    fprintf(fp_arquivo, "<TH> SITUAÇÃO </TH>");
+    fprintf(fp_arquivo, "<TH> TRIPULAÇÃO NECESSÁRIA </TH> </TR>\n");
+
+    while(lista){
+        fprintf(fp_arquivo, "<TR>");
+        fprintf(fp_arquivo, "<TD> %u </TD>", lista->codigo_aeronave);
+        fprintf(fp_arquivo, "<TD>");mostrar_fabricante(lista->fabricante, fp_arquivo);fprintf(fp_arquivo, "</TD>");
+        fprintf(fp_arquivo, "<TD> %s </TD>", lista->modelo);
+        fprintf(fp_arquivo, "<TD> %s </TD>", lista->prefixo);
+        fprintf(fp_arquivo, "<TD> %i </TD>", lista->ano_de_fabricacao);
+        fprintf(fp_arquivo, "<TD>");mostrar_tipo(lista->tipo, fp_arquivo);fprintf(fp_arquivo, "</TD>");
+        fprintf(fp_arquivo, "<TD>");mostrar_situacao(lista->situacao, fp_arquivo);fprintf(fp_arquivo, "</TD>");
+        fprintf(fp_arquivo, "<TD> %i </TD>", lista->tripulacao_necessaria);
+        fprintf(fp_arquivo, "</TR>\n");
+
+        lista = lista->prox;
+    }
+
+    fprintf(fp_arquivo, "</TABLE> </BODY> </HTML>\n");
+    fclose(fp_arquivo);
+}
+
+void exportar_dados_arquivo_html_rotas(string nome_arq, rotas_t *lista){
+
+}
