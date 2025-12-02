@@ -123,5 +123,44 @@ void exportar_dados_arquivo_html_aeronaves(string nome_arq, aeronaves_t *lista){
 }
 
 void exportar_dados_arquivo_html_rotas(string nome_arq, rotas_t *lista){
+    FILE *fp_arquivo = NULL;
+    fp_arquivo = fopen(nome_arq, "w");
 
+    if (!fp_arquivo) {
+        printf("Erro ao abrir arquivo %s\n", nome_arq);
+        return;
+    }
+
+    fprintf(fp_arquivo, "<HTML> <HEAD> <TITLE> RELATÓRIO DE AERONAVES </TITLE> </HEAD> <BODY> \n");
+    fprintf(fp_arquivo, "<TABLE border = '1'> <TR>");
+    fprintf(fp_arquivo, "<TH> CÓDIGO DA AERONAVE ALOCADA </TH>"); // títulos das colunas
+    fprintf(fp_arquivo, "<TH> CÓDIGO DA ROTA </TH>");
+    fprintf(fp_arquivo, "<TH> DATA </TH>");
+    fprintf(fp_arquivo, "<TH> HORA </TH>");
+    fprintf(fp_arquivo, "<TH> ORIGEM </TH>");
+    fprintf(fp_arquivo, "<TH> DESTINO </TH>");
+    fprintf(fp_arquivo, "<TH> TEMPO DE VOO (EM H) </TH>");
+    fprintf(fp_arquivo, "<TH> COMBUSTÍVEL NECESSÁRIO (EM L) </TH>");
+    fprintf(fp_arquivo, "<TH> QUANTIDADE DE PASSAGEIROS </TH>");
+    fprintf(fp_arquivo, "<TH> QUANTIDADE DE CARGA (EM KG) </TH> </TR>\n");
+
+    while(lista){
+        fprintf(fp_arquivo, "<TR>");
+        fprintf(fp_arquivo, "<TD> %u </TD>", lista->codigo_da_aeronave);
+        fprintf(fp_arquivo, "<TD> %u </TD>", lista->codigo_da_rota);
+        fprintf(fp_arquivo, "<TD> %02d/%02d/%02d </TD>", lista->data.dia, lista->data.mes, lista->data.ano);
+        fprintf(fp_arquivo, "<TD> %02d:%02d </TD>", lista->hora.horas, lista->hora.minutos);
+        fprintf(fp_arquivo, "<TD> %s </TD>", lista->origem);
+        fprintf(fp_arquivo, "<TD> %s </TD>", lista->destino);
+        fprintf(fp_arquivo, "<TD> %u </TD>", lista->tempo_estimado_de_voo);
+        fprintf(fp_arquivo, "<TD> %.2f </TD>", lista->combustivel_necessario);
+        fprintf(fp_arquivo, "<TD> %u </TD>", lista->n_passageiros);
+        fprintf(fp_arquivo, "<TD> %u </TD>", lista->n_carga);
+        fprintf(fp_arquivo, "</TR>\n");
+
+        lista = lista->prox;
+    }
+
+    fprintf(fp_arquivo, "</TABLE> </BODY> </HTML>\n");
+    fclose(fp_arquivo);
 }
