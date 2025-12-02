@@ -76,7 +76,7 @@ int main(){
                                         break;
 
                                     case 0:
-                                        printf("Voltando ao menu anterior...");
+                                        printf("Voltando ao menu anterior...\n");
                                         pressione_enter();
                                         break;
 
@@ -160,7 +160,7 @@ int main(){
                                         break;
 
                                     case 0:
-                                        printf("Voltando ao menu anterior...");
+                                        printf("Voltando ao menu anterior...\n");
                                         pressione_enter();
                                         break;
 
@@ -171,7 +171,7 @@ int main(){
                             break;
                         
                         case 0:
-                            printf("Voltando ao menu principal...");
+                            printf("Voltando ao menu principal...\n");
                             pressione_enter();
                             break;
 
@@ -243,7 +243,7 @@ int main(){
                                         break;
 
                                     case 0:
-                                        printf("Voltando ao menu anterior...");
+                                        printf("Voltando ao menu anterior...\n");
                                         pressione_enter();
                                         break;
 
