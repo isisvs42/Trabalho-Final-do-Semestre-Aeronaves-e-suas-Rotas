@@ -175,9 +175,6 @@ int main(){
                             pressione_enter();
                             break;
 
-                        default:
-                            printf("Isso nao eh uma opcao.\n");
-
                     }
                 } while (opc_sub);
                 break;
@@ -347,10 +344,6 @@ int main(){
                             printf("Voltando ao menu principal...\n");
                             pressione_enter();
                             break;
-                        
-                        default:
-                            printf("Isso nao eh uma opcao\n");
-                            break;
                     }
                 } while (opc_sub);
                 break;
@@ -374,10 +367,7 @@ int main(){
                             printf("Voltando ao menu anterior.\n");
                             pressione_enter();
                             break;
-                        
-                        default:
-                            printf("Isso nao eh uma opcao.\n");
-                            pressione_enter();
+
                     }
                 } while(opc_sub);
                 break;
@@ -389,7 +379,13 @@ int main(){
                 do {
                     printf("Tem certeza que quer apagar aeronave %u (1 = sim/2 = nao)? ", codigo_aeronave);
                     scanf("%u", &s_n);
+                    getchar();
                 } while (s_n < 1 || s_n > 2);
+                aeronave = localizar_aeronave_por_codigo(codigo_aeronave, lista_aeronaves);
+                if(aeronave)
+                    apagar_aeronave(aeronave, &lista_aeronaves);
+                else
+                    printf("Essa aeronave nao foi encontrada...\n");
                 pressione_enter();
                 break;
             
@@ -424,10 +420,6 @@ int main(){
                                         printf("Voltando ao menu anterior...\n");
                                         pressione_enter();
                                         break;
-
-                                    default:
-                                        printf("Isso nao eh uma opcao.\n");
-                                        pressione_enter();
                                 }
                             } while (opc_sub2);
                             break;
@@ -458,10 +450,6 @@ int main(){
                                         printf("Voltando ao menu anterior...\n");
                                         pressione_enter();
                                         break;
-
-                                    default:
-                                        printf("Isso nao eh uma opcao.\n");
-                                        pressione_enter();
                                 }
                             } while (opc_sub2);
                             break;
@@ -492,10 +480,6 @@ int main(){
                                         printf("Voltando ao menu anterior...\n");
                                         pressione_enter();
                                         break;
-
-                                    default:
-                                        printf("Isso nao eh uma opcao.\n");
-                                        pressione_enter();
                                 }
                             } while (opc_sub2);
                             break;
@@ -505,11 +489,7 @@ int main(){
                             pressione_enter();
                             break;
 
-                        default:
-                            printf("Isso nao eh uma opcao\n");
-                            pressione_enter();
-                    }
-                   
+                    } 
 
                 } while (opc_sub);
                 break;
@@ -557,10 +537,6 @@ int main(){
                 consumo_total_de_combustivel_em_intervalo_de_datas(inicio, fim, lista_rotas);
                 pressione_enter();
                 break;
-
-            default:
-                printf("Isso nao eh uma opcao.\n");
-                pressione_enter();
 
         }
     } while(opc_menu);
