@@ -38,7 +38,10 @@ float consumo_total_de_combustivel_em_intervalo_de_datas(data_t inicio, data_t f
         lista_rotas = lista_rotas->prox;
     }
 
-    printf("O consumo total de combustivel nesse intervalo de datas foi de %.2f L.\n", consumo_total);
+    if (!consumo_total)
+        printf("Nao ha aeronaves nesse intervalo");
+    else
+        printf("O consumo total de combustivel nesse intervalo de datas foi de %.2f L.\n", consumo_total);
 }
 
 void percentual_de_voos_por_destino_em_intervalo_de_datas(data_t inicio, data_t fim, rotas_t* lista_rotas){
