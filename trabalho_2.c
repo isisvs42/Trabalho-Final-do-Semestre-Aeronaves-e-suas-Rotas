@@ -107,7 +107,7 @@ int main(){
                                                 rota = localizar_rota_por_codigo(codigo_rota, lista_rotas);
 
                                                 if(!rota){ // se a rota não foi registrada
-                                                    rota = nova_rota(codigo_aeronave, codigo_rota, carga);
+                                                    rota = nova_rota(aeronave, codigo_rota, carga);
                                                     inserir_rota_pelo_inicio(rota, &lista_rotas);
                                                 } else {
                                                     printf("Esse codigo ja eh usado. Abortando insercao de rota...\n");
@@ -141,7 +141,7 @@ int main(){
                                                 rota = localizar_rota_por_codigo(codigo_rota, lista_rotas);
 
                                                 if(!rota){ // se a rota não foi registrada
-                                                    rota = nova_rota(codigo_aeronave, codigo_rota, carga);
+                                                    rota = nova_rota(aeronave, codigo_rota, carga);
                                                     inserir_rota_pelo_fim(rota, &lista_rotas);
                                                 } else {
                                                     printf("Esse codigo ja eh usado. Abortando insercao de rota...\n");

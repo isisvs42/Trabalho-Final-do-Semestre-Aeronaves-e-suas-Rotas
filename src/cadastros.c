@@ -141,12 +141,12 @@ aeronaves_t* localizar_ultima_aeronave(aeronaves_t *lista_aeronaves){
 }
 
 // cadastro de rotas
-rotas_t *nova_rota(unsigned int codigo_aeronave, unsigned int codigo_rota, bool carga){
+rotas_t *nova_rota(aeronaves_t* aeronave, unsigned int codigo_rota, bool carga){
     rotas_t *rota = NULL;
 
     rota = calloc(1, sizeof(rotas_t));
 
-    rota->codigo_da_aeronave = codigo_aeronave;
+    rota->codigo_da_aeronave = aeronave->codigo_aeronave;
     rota->codigo_da_rota = codigo_rota;
     
     printf("Data (dd/mm/aaaa): ");
@@ -183,9 +183,16 @@ rotas_t *nova_rota(unsigned int codigo_aeronave, unsigned int codigo_rota, bool 
         rota->n_passageiros = 0; // nada de passageiros
 
     } else { 
-        printf("Quantidade de passageiros: ");
-        scanf("%u", &rota->n_passageiros);
-        getchar();
+        do {
+            printf("Quantidade de passageiros: ");
+            scanf("%u", &rota->n_passageiros);
+            getchar();
+            if(rota->n_passageiros > aeronave->n_passageiros_max){
+                printf("Nao eh possivel a aeronave ter %i passageiros. O maximo eh %i\n", rota->n_passageiros, aeronave->n_passageiros_max);
+                printf("Tente de novo...\n");
+                pressione_enter();
+            }
+        } while(rota->n_passageiros > aeronave->n_passageiros_max);
         rota->n_carga = 0; // nada de carga
     }
 

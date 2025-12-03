@@ -16,7 +16,7 @@ void inserir_aeronave_pelo_fim(aeronaves_t *aeronave, aeronaves_t **end_lista_ae
 aeronaves_t* localizar_ultima_aeronave(aeronaves_t *lista_aeronaves);
 
 // cadastro de rotas
-rotas_t *nova_rota(unsigned int codigo_aeronave, unsigned int codigo_rota, bool carga);
+rotas_t *nova_rota(aeronaves_t *aeronave, unsigned int codigo_rota, bool carga);
 rotas_t *localizar_rota_por_codigo(unsigned int codigo_rota, rotas_t *lista_rotas);
 bool eh_carga(aeronaves_t *aeronave);
 bool esta_operando(aeronaves_t *aeronave);
