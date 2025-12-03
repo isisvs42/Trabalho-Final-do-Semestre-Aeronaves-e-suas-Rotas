@@ -32,9 +32,4 @@ void listagem_rotas_numero_passageiros(int n_passageiros, rotas_t *lista_rotas);
 void mostrar_rota_maior_n_passageiros(rotas_t *lista_rotas);
 void mostrar_rota_menor_n_passageiros(rotas_t *lista_rotas);
 
-/*int calculo_rotas_com_maior_n_pass(rotas_t **maiores_rotas, aeronaves_t *lista_aeronaves, rotas_t *lista_rotas);
-void listagem_rotas_maior_n_passageiros(rotas_t *maiores_rotas, int k);
-int calculo_rotas_com_menor_n_pass(rotas_t **menores_rotas, aeronaves_t *lista_aeronaves, rotas_t *lista_rotas);
-void listagem_rotas_menor_n_passageiros(rotas_t *menores_rotas, int k);*/
-
 #endif

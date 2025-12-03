@@ -310,22 +310,12 @@ int main(){
                                         break;
 
                                     case 6: // maior numero de passageiros
-                                    
-                                        /*numero = calculo_rotas_com_maior_n_pass(&maiores_rotas, lista_aeronaves, lista_rotas);
-                                        listagem_rotas_maior_n_passageiros(maiores_rotas, numero);
-                                        pressione_enter();*/
-
                                         mostrar_rota_maior_n_passageiros(lista_rotas);
                                         pressione_enter();
 
                                         break;
 
                                     case 7: // menor numero de passageiros
-
-                                        /*numero = calculo_rotas_com_menor_n_pass(&menores_rotas, lista_aeronaves, lista_rotas);
-                                        listagem_rotas_menor_n_passageiros(menores_rotas, numero);
-                                        pressione_enter();*/
-
                                         mostrar_rota_menor_n_passageiros(lista_rotas);
                                         pressione_enter();
 
