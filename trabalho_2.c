@@ -56,7 +56,7 @@ int main(){
                                             aeronave = nova_aeronave(codigo_aeronave);
                                             inserir_aeronave_pelo_inicio(aeronave, &lista_aeronaves);
                                         } else {
-                                            printf("Aeronave ja foi registrada.\n");
+                                            printf("Aeronave ja foi registrada. Aeronave ja foi registrada. Entao vamos mudar a situacao dela:\n");
                                             registrar_situacao(aeronave);
                                         }
                                         break;
@@ -70,7 +70,7 @@ int main(){
                                             aeronave = nova_aeronave(codigo_aeronave);
                                             inserir_aeronave_pelo_fim(aeronave, &lista_aeronaves);
                                         } else {
-                                            printf("Aeronave ja foi registrada.");
+                                            printf("Aeronave ja foi registrada. Entao vamos mudar a situacao dela:\n");
                                             registrar_situacao(aeronave);
                                         }
                                         break;

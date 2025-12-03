@@ -190,7 +190,6 @@ rotas_t *nova_rota(aeronaves_t* aeronave, unsigned int codigo_rota, bool carga){
             if(rota->n_passageiros > aeronave->n_passageiros_max){
                 printf("Nao eh possivel a aeronave ter %i passageiros. O maximo eh %i\n", rota->n_passageiros, aeronave->n_passageiros_max);
                 printf("Tente de novo...\n");
-                pressione_enter();
             }
         } while(rota->n_passageiros > aeronave->n_passageiros_max);
         rota->n_carga = 0; // nada de carga

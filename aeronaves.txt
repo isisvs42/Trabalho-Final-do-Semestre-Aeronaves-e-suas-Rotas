@@ -34,3 +34,12 @@ Tipo............................. Carga
 Situacao......................... Em operacao
 Tripulacao necessaria............ 3
 
+Identificacao.................... 5005
+Fabricante....................... Airbus
+Modelo........................... A321NEO
+Prefixo.......................... PR-AZN
+Ano de fabricacao................ 2022
+Tipo............................. Passageiro
+Situacao......................... Em operacao
+Tripulacao necessaria............ 6
+

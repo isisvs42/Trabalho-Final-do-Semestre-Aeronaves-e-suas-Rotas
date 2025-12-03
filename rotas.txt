@@ -1,3 +1,14 @@
+Codigo da aeronave alocada........ 5005
+Codigo da rota.................... 502
+Data.............................. 20/02/2025
+Hora.............................. 19:20
+Origem............................ RIO DE JANEIRO
+Destino........................... PORTO ALEGRE
+Tempo de voo (em h)............... 2
+Combustivel necessario (em L)..... 3400.00
+N passageiros..................... 150
+N carga........................... 0
+
 Codigo da aeronave alocada........ 1001
 Codigo da rota.................... 104
 Data.............................. 22/01/2025
@@ -107,4 +118,26 @@ Tempo de voo (em h)............... 4
 Combustivel necessario (em L)..... 14000.00
 N passageiros..................... 0
 N carga........................... 31000
+
+Codigo da aeronave alocada........ 5005
+Codigo da rota.................... 500
+Data.............................. 05/02/2025
+Hora.............................. 08:10
+Origem............................ CURITIBA
+Destino........................... SAO PAULO
+Tempo de voo (em h)............... 1
+Combustivel necessario (em L)..... 2100.00
+N passageiros..................... 160
+N carga........................... 0
+
+Codigo da aeronave alocada........ 5005
+Codigo da rota.................... 501
+Data.............................. 12/02/2025
+Hora.............................. 17:45
+Origem............................ SAO PAULO
+Destino........................... BRASILIA
+Tempo de voo (em h)............... 2
+Combustivel necessario (em L)..... 3000.00
+N passageiros..................... 199
+N carga........................... 0
 
