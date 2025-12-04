@@ -82,6 +82,7 @@ int main(){
 
                                     default:
                                         printf("Isso nao eh uma opcao;\n");
+                                        pressione_enter();
                                 }
                             } while (opc_sub2);
                             break;
@@ -166,6 +167,7 @@ int main(){
 
                                     default:
                                         printf("Isso nao eh uma opcao;\n");
+                                        pressione_enter();
                                 }
                             } while (opc_sub2);
                             break;
@@ -174,6 +176,10 @@ int main(){
                             printf("Voltando ao menu principal...\n");
                             pressione_enter();
                             break;
+
+                        default:
+                            printf("Isso nao eh uma opcao.\n");
+                            pressione_enter();
 
                     }
                 } while (opc_sub);
@@ -358,6 +364,10 @@ int main(){
                             pressione_enter();
                             break;
 
+                        default:
+                            printf("Isso nao eh uma opcao.\n");
+                            pressione_enter();
+
                     }
                 } while(opc_sub);
                 break;
@@ -410,6 +420,10 @@ int main(){
                                         printf("Voltando ao menu anterior...\n");
                                         pressione_enter();
                                         break;
+
+                                    default:
+                                        printf("Isso nao eh uma opcao.\n");
+                                        pressione_enter();
                                 }
                             } while (opc_sub2);
                             break;
@@ -440,6 +454,10 @@ int main(){
                                         printf("Voltando ao menu anterior...\n");
                                         pressione_enter();
                                         break;
+
+                                    default:
+                                        printf("Isso nao eh uma opcao.\n");
+                                        pressione_enter();
                                 }
                             } while (opc_sub2);
                             break;
@@ -470,6 +488,10 @@ int main(){
                                         printf("Voltando ao menu anterior...\n");
                                         pressione_enter();
                                         break;
+
+                                    default:
+                                        printf("Isso nao eh uma opcao.\n");
+                                        pressione_enter();
                                 }
                             } while (opc_sub2);
                             break;
@@ -479,6 +501,9 @@ int main(){
                             pressione_enter();
                             break;
 
+                        default:
+                            printf("Isso nao eh uma opcao.\n");
+                            pressione_enter();
                     } 
 
                 } while (opc_sub);
@@ -527,6 +552,10 @@ int main(){
                 consumo_total_de_combustivel_em_intervalo_de_datas(inicio, fim, lista_rotas);
                 pressione_enter();
                 break;
+
+            default:
+                printf("Isso nao eh uma opcao.\n");
+                pressione_enter();
 
         }
     } while(opc_menu);

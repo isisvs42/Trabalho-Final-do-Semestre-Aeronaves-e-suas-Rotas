@@ -19,12 +19,6 @@ int menu(){
     scanf("%d", &opc);
     getchar();
 
-    if (opc < 0 || opc > 9){
-        printf("Isso nao eh uma opcao.\n");
-        pressione_enter();
-        return menu();
-    }
-
     return opc;
 }
 
@@ -37,12 +31,6 @@ int submenu_cadastros(){
     printf("::::::: ");
     scanf("%d", &opc);
     getchar();
-
-    if (opc < 0 || opc > 2){
-        printf("Isso nao eh uma opcao.\n");
-        pressione_enter();
-        return submenu_cadastros();
-    }
 
     return opc;
 }
@@ -57,12 +45,6 @@ int submenu_cadastrar_inicio_fim(char* a_r){
     scanf("%d", &opc);
     getchar();
 
-    if (opc < 0 || opc > 2){
-        printf("Isso nao eh uma opcao.\n");
-        pressione_enter();
-        return submenu_cadastrar_inicio_fim(a_r);
-    }
-
     return opc;  
 }
 
@@ -75,12 +57,6 @@ int submenu_localizar(){
     printf("::::::: ");
     scanf("%d", &opc);
     getchar();
-
-    if (opc < 0 || opc > 2){
-        printf("Isso nao eh uma opcao.\n");
-        pressione_enter();
-        return submenu_localizar();
-    }
 
     return opc;
 }
@@ -98,12 +74,6 @@ int submenu_localizar_aeronaves(){
     printf("::::::: ");
     scanf("%d", &opc);
     getchar();
-
-    if (opc < 0 || opc > 6){
-        printf("Isso nao eh uma opcao.\n");
-        pressione_enter();
-        return submenu_localizar_aeronaves();
-    }
 
     return opc;
 }
@@ -123,12 +93,6 @@ int submenu_localizar_rotas(){
     scanf("%d", &opc);
     getchar();
 
-    if (opc < 0 || opc > 7){
-        printf("Isso nao eh uma opcao.\n");
-        pressione_enter();
-        return submenu_localizar_rotas();
-    }
-
     return opc;
 }
 
@@ -141,12 +105,6 @@ int submenu_listar_tudo(){
     printf("::::::: ");
     scanf("%d", &opc);
     getchar();
-
-    if (opc < 0 || opc > 2){
-        printf("Isso nao eh uma opcao.\n");
-        pressione_enter();
-        return submenu_listar_tudo();
-    }
 
     return opc;
 }
@@ -162,12 +120,6 @@ int submenu_exportar_dados(){
     scanf("%d", &opc);
     getchar();
 
-    if (opc < 0 || opc > 3){
-        printf("Isso nao eh uma opcao.\n");
-        pressione_enter();
-        return submenu_exportar_dados();
-    }
-
     return opc;
 }
 
@@ -180,12 +132,6 @@ int submenu_exportar_quais_dados(){
     printf("::::::: ");
     scanf("%d", &opc);
     getchar();
-
-    if (opc < 0 || opc > 2){
-        printf("Isso nao eh uma opcao.\n");
-        pressione_enter();
-        return submenu_exportar_quais_dados();
-    }
 
     return opc;
 }
