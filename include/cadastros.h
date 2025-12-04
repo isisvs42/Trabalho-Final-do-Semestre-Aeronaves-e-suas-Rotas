@@ -17,6 +17,7 @@ aeronaves_t* localizar_ultima_aeronave(aeronaves_t *lista_aeronaves);
 
 // cadastro de rotas
 rotas_t *nova_rota(aeronaves_t *aeronave, unsigned int codigo_rota, bool carga);
+void registrar_nomes_tripulacao(rotas_t* rota, int n_tripulacao);
 rotas_t *localizar_rota_por_codigo(unsigned int codigo_rota, rotas_t *lista_rotas);
 bool eh_carga(aeronaves_t *aeronave);
 bool esta_operando(aeronaves_t *aeronave);

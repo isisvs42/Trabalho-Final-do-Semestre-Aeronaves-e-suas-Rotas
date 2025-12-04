@@ -153,8 +153,18 @@ void mostrar_rota(rotas_t *rota, FILE *fp){
     fprintf(fp, "Combustivel necessario (em L)..... %.2f\n", rota->combustivel_necessario);
     fprintf(fp, "N passageiros..................... %u\n", rota->n_passageiros);
     fprintf(fp, "N carga........................... %u\n", rota->n_carga);
-    //mostrar_nomes_tripulacao(rota->identificacao, rota, lista_aeronaves);
+    fprintf(fp, "Nomes dos membros da tripulacao: ");
+    mostrar_nomes_tripulacao(rota->nomes_tripulacao, rota->n_tripulacao, fp);
     fprintf(fp, "\n");
+}
+
+void mostrar_nomes_tripulacao(string *matriz_tripulacao, int n_tripulacao, FILE *fp){
+    for(int i = 0; i < n_tripulacao; i++){
+        if(i != n_tripulacao-1)
+            fprintf(fp, "%s, ", matriz_tripulacao+i);
+        else
+            fprintf(fp, "%s.", matriz_tripulacao+i);
+    }
 }
 
 void listar_rotas(rotas_t *lista){

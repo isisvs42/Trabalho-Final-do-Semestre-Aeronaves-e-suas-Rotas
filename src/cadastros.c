@@ -160,6 +160,7 @@ rotas_t *nova_rota(aeronaves_t* aeronave, unsigned int codigo_rota, bool carga){
 
     rota->codigo_da_aeronave = aeronave->codigo_aeronave;
     rota->codigo_da_rota = codigo_rota;
+    rota->n_tripulacao = aeronave->tripulacao_necessaria;
     
     printf("Data (dd/mm/aaaa): ");
     scanf("%d/%d/%d", &rota->data.dia, &rota->data.mes, &rota->data.ano);
@@ -207,7 +208,7 @@ rotas_t *nova_rota(aeronaves_t* aeronave, unsigned int codigo_rota, bool carga){
         rota->n_carga = 0; // nada de carga
     }
 
-    // registrar_nomes_tripulacao(rota->identificacao, rota, lista_aeronaves);
+    registrar_nomes_tripulacao(rota, rota->n_tripulacao);
 
     printf("Rota registrada. Pressione enter para continuar...\n");
     getchar();
@@ -215,6 +216,21 @@ rotas_t *nova_rota(aeronaves_t* aeronave, unsigned int codigo_rota, bool carga){
     rota->prox = NULL;
 
     return rota;
+}
+
+void registrar_nomes_tripulacao(rotas_t* rota, int n_tripulacao){
+    string nome;
+
+    printf("--> Estaremos agora registrando os nomes da tripulacao.\n");
+    pressione_enter();
+
+    for(int i = 0; i < n_tripulacao; i++){
+        printf("Digite o nome do membro n%i: ", i+1);
+        fgets(nome, T_STRING, stdin);
+        retirar_enter(nome);
+        formatar_maiusculo(nome);
+        strcpy(rota->nomes_tripulacao[i], nome);
+    }
 }
 
 rotas_t *localizar_rota_por_codigo(unsigned int codigo_rota, rotas_t *lista_rotas){

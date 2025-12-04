@@ -22,6 +22,7 @@ void listagem_aeronaves_situacao(situacao_t situacao, aeronaves_t *lista);
 // mostrar rotas
 void listar_rotas(rotas_t *lista);
 void mostrar_rota(rotas_t *rota, FILE *fp);
+void mostrar_nomes_tripulacao(string *matriz_tripulacao, int n_tripulacao, FILE *fp);
 
 // listagens de rotas
 void listagem_rotas_data(data_t data, rotas_t *lista_rotas);

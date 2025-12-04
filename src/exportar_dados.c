@@ -72,10 +72,21 @@ void exportar_dados_arquivo_csv_rotas(string nome_arq, rotas_t *lista){
         return;
     }
 
-    fprintf(fp_arquivo, "CÓDIGO DA AERONAVE ALOCADA;CÓDIGO DA ROTA;DATA;HORA;ORIGEM;DESTINO;TEMPO DE VOO (EM H);COMBUSTÍVEL NECESSÁRIO (EM L);QUANTIA DE PASSAGEIROS;QUANTIA DE CARGA (EM KG)\n");
+    fprintf(fp_arquivo, "CÓDIGO DA AERONAVE ALOCADA;CÓDIGO DA ROTA;DATA;HORA;ORIGEM;DESTINO;TEMPO DE VOO (EM H);COMBUSTÍVEL NECESSÁRIO (EM L);QUANTIA DE PASSAGEIROS;QUANTIA DE CARGA (EM KG);NOMES DOS TRIPULANTES\n");
     while(lista){
-        fprintf(fp_arquivo, "%u;%u;%02d/%02d/%02d;%02d:%02d;%s;%s;%u;%.2f;%u;%u\n", lista->codigo_da_aeronave, lista->codigo_da_rota, lista->data.dia, lista->data.mes, lista->data.ano, lista->hora.horas, lista->hora.minutos,
-        lista->origem, lista->destino, lista->tempo_estimado_de_voo, lista->combustivel_necessario, lista->n_passageiros, lista->n_carga);
+        fprintf(fp_arquivo, "%u;%u;%02d/%02d/%02d;%02d:%02d;%s;%s;%u;%.2f;%u;%u;", 
+            lista->codigo_da_aeronave,
+            lista->codigo_da_rota,
+            lista->data.dia, lista->data.mes, lista->data.ano,
+            lista->hora.horas, lista->hora.minutos,
+            lista->origem,
+            lista->destino,
+            lista->tempo_estimado_de_voo,
+            lista->combustivel_necessario,
+            lista->n_passageiros,
+            lista->n_carga);
+        mostrar_nomes_tripulacao(lista->nomes_tripulacao, lista->n_tripulacao, fp_arquivo);
+        fprintf(fp_arquivo, "\n");
 
         lista = lista->prox;
     }
@@ -142,7 +153,8 @@ void exportar_dados_arquivo_html_rotas(string nome_arq, rotas_t *lista){
     fprintf(fp_arquivo, "<TH> TEMPO DE VOO (EM H) </TH>");
     fprintf(fp_arquivo, "<TH> COMBUSTÍVEL NECESSÁRIO (EM L) </TH>");
     fprintf(fp_arquivo, "<TH> QUANTIDADE DE PASSAGEIROS </TH>");
-    fprintf(fp_arquivo, "<TH> QUANTIDADE DE CARGA (EM KG) </TH> </TR>\n");
+    fprintf(fp_arquivo, "<TH> QUANTIDADE DE CARGA (EM KG) </TH>");
+    fprintf(fp_arquivo, "<TH> NOMES DOS MEMBROS DA TRIPULACAO </TH> </TR>\n");
 
     while(lista){
         fprintf(fp_arquivo, "<TR>");
@@ -156,6 +168,7 @@ void exportar_dados_arquivo_html_rotas(string nome_arq, rotas_t *lista){
         fprintf(fp_arquivo, "<TD> %.2f </TD>", lista->combustivel_necessario);
         fprintf(fp_arquivo, "<TD> %u </TD>", lista->n_passageiros);
         fprintf(fp_arquivo, "<TD> %u </TD>", lista->n_carga);
+        fprintf(fp_arquivo, "<TD>"); mostrar_nomes_tripulacao(lista->nomes_tripulacao, lista->n_tripulacao, fp_arquivo); fprintf(fp_arquivo, "</TD>");
         fprintf(fp_arquivo, "</TR>\n");
 
         lista = lista->prox;
