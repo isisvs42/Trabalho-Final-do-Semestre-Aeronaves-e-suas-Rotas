@@ -6,12 +6,24 @@
 
 // cadastro de aeronave
 aeronaves_t *localizar_aeronave_por_codigo(unsigned int codigo_aeronave, aeronaves_t *lista_aeronaves){
-    while (lista_aeronaves){
+    // versão recursiva
+
+    //      DEFINITIVAMENTE NÃO ACHEI
+    if(!lista_aeronaves) return NULL;
+
+    //      ACHEI
+    if(codigo_aeronave == lista_aeronaves->codigo_aeronave) return lista_aeronaves;
+
+    //      AINDA NÃO ACHEI
+    return localizar_aeronave_por_codigo(codigo_aeronave, lista_aeronaves->prox);
+
+    /* versão iterativa
+        while (lista_aeronaves){
         if (codigo_aeronave == lista_aeronaves->codigo_aeronave)
             return lista_aeronaves;
         lista_aeronaves = lista_aeronaves->prox;
     }
-    return NULL;
+    return NULL;*/
 }
 
 aeronaves_t *nova_aeronave(unsigned int codigo_aeronave){
@@ -206,13 +218,26 @@ rotas_t *nova_rota(aeronaves_t* aeronave, unsigned int codigo_rota, bool carga){
 }
 
 rotas_t *localizar_rota_por_codigo(unsigned int codigo_rota, rotas_t *lista_rotas){
-    while(lista_rotas){
+    // versão recursiva
+
+    //      DEFINITIVAMENTE NÃO ACHEI
+    if(!lista_rotas) return NULL;
+
+    //      ACHEI
+    if(codigo_rota == lista_rotas->codigo_da_rota) return lista_rotas;
+
+    //      AINDA NÃO ACHEI
+    return localizar_rota_por_codigo(codigo_rota, lista_rotas->prox);
+    
+    
+    /* versão iterativa
+        while(lista_rotas){
         if(lista_rotas->codigo_da_rota == codigo_rota)
             return lista_rotas;
 
         lista_rotas = lista_rotas->prox;
     }
-    return NULL;
+    return NULL;*/
 }
 
 bool eh_carga(aeronaves_t *aeronave){
