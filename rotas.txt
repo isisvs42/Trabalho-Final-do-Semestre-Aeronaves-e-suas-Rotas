@@ -9,6 +9,7 @@ Combustivel necessario (em L)..... 3400.00
 N passageiros..................... 150
 N carga........................... 0
 Nomes dos membros da tripulacao: ADRIANA, ANA, MARIA, SANDRA, JULIANA, HELENA.
+
 Codigo da aeronave alocada........ 1001
 Codigo da rota.................... 104
 Data.............................. 22/01/2025
@@ -20,6 +21,7 @@ Combustivel necessario (em L)..... 2100.00
 N passageiros..................... 150
 N carga........................... 0
 Nomes dos membros da tripulacao: MADALENA, ANTONIO, CARLOS, FRANCISCO, JOAO, JOSE.
+
 Codigo da aeronave alocada........ 4004
 Codigo da rota.................... 401
 Data.............................. 16/04/2025
@@ -31,6 +33,7 @@ Combustivel necessario (em L)..... 18000.00
 N passageiros..................... 0
 N carga........................... 25000
 Nomes dos membros da tripulacao: AFONSO, LOURENCO, BRUNA.
+
 Codigo da aeronave alocada........ 4004
 Codigo da rota.................... 400
 Data.............................. 10/04/2025
@@ -42,6 +45,7 @@ Combustivel necessario (em L)..... 26000.00
 N passageiros..................... 0
 N carga........................... 38000
 Nomes dos membros da tripulacao: CAMILA, JESSICA, LETICIA.
+
 Codigo da aeronave alocada........ 3003
 Codigo da rota.................... 302
 Data.............................. 28/03/2025
@@ -53,6 +57,7 @@ Combustivel necessario (em L)..... 3400.00
 N passageiros..................... 128
 N carga........................... 0
 Nomes dos membros da tripulacao: LETICIA, AMANDA, BETINA, LUCAS, LUIS.
+
 Codigo da aeronave alocada........ 1001
 Codigo da rota.................... 101
 Data.............................. 19/01/2025
@@ -64,6 +69,7 @@ Combustivel necessario (em L)..... 2100.00
 N passageiros..................... 154
 N carga........................... 0
 Nomes dos membros da tripulacao: LUIZ, MATEUS, GUILHERME, PEDRO, HELENA, HELOISA.
+
 Codigo da aeronave alocada........ 1001
 Codigo da rota.................... 100
 Data.............................. 12/01/2025
@@ -75,6 +81,7 @@ Combustivel necessario (em L)..... 2600.00
 N passageiros..................... 143
 N carga........................... 0
 Nomes dos membros da tripulacao: MARIA CLARA, MARIA CECILIA, MARIA JULIA, MAITE, MARIA EDUARDA, ELISA.
+
 Codigo da aeronave alocada........ 1001
 Codigo da rota.................... 102
 Data.............................. 25/02/2025
@@ -86,6 +93,7 @@ Combustivel necessario (em L)..... 2600.00
 N passageiros..................... 143
 N carga........................... 0
 Nomes dos membros da tripulacao: LORENA, MARIA LUIZA, ALICE, ISABELLA, JULIA, SOPHIA.
+
 Codigo da aeronave alocada........ 3003
 Codigo da rota.................... 300
 Data.............................. 03/03/2025
@@ -97,6 +105,7 @@ Combustivel necessario (em L)..... 1800.00
 N passageiros..................... 121
 N carga........................... 0
 Nomes dos membros da tripulacao: LAURA, VALENTINA, OLIVIA, CECILIA, BEATRIZ.
+
 Codigo da aeronave alocada........ 3003
 Codigo da rota.................... 301
 Data.............................. 12/03/2025
@@ -108,6 +117,7 @@ Combustivel necessario (em L)..... 3200.00
 N passageiros..................... 136
 N carga........................... 0
 Nomes dos membros da tripulacao: MANUELA, LUIZA, GRETA, HEITOR, SAMUEL.
+
 Codigo da aeronave alocada........ 4004
 Codigo da rota.................... 402
 Data.............................. 29/03/2025
@@ -119,6 +129,7 @@ Combustivel necessario (em L)..... 2100.00
 N passageiros..................... 0
 N carga........................... 31000
 Nomes dos membros da tripulacao: JOAO MIGUEL, ENZO GABRIEL, NOAH.
+
 Codigo da aeronave alocada........ 5005
 Codigo da rota.................... 500
 Data.............................. 12/02/2025
@@ -130,6 +141,7 @@ Combustivel necessario (em L)..... 2100.00
 N passageiros..................... 160
 N carga........................... 0
 Nomes dos membros da tripulacao: PEDRO, RAVI, LORENZO, BENICIO, ISAAC, ARTHUR.
+
 Codigo da aeronave alocada........ 5005
 Codigo da rota.................... 501
 Data.............................. 05/02/2025
@@ -141,14 +153,4 @@ Combustivel necessario (em L)..... 3000.00
 N passageiros..................... 199
 N carga........................... 0
 Nomes dos membros da tripulacao: MIGUEL, DAVI, GABRIEL, BERNARDO, NICOLAS, GAEL.
-Codigo da aeronave alocada........ 1001
-Codigo da rota.................... 2222
-Data.............................. 12/12/2025
-Hora.............................. 12:30
-Origem............................ TESTE
-Destino........................... TESTADO
-Tempo de voo (em h)............... 1
-Combustivel necessario (em L)..... 1.00
-N passageiros..................... 1
-N carga........................... 0
-Nomes dos membros da tripulacao: NOME1, NOME2, NOME2, NOME2, NOME1, NOME.
+

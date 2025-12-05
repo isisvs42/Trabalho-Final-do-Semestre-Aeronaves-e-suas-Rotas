@@ -8,7 +8,7 @@ int menu(){
     printf("1. Cadastrar;\n");
     printf("2. Localizar;\n");
     printf("3. Listar tudo;\n");
-    printf("4. Apagar aeronave;\n");
+    printf("4. Apagar;\n");
     printf("5. Exportar dados;\n");
     printf("6. Percentual de Voos por Destino em Intervalo de Datas;\n");
     printf("7. Percentual de Voos Realizado por Aeronave;\n");
@@ -22,11 +22,22 @@ int menu(){
     return opc;
 }
 
-int submenu_cadastros(){
+int submenu_aeronave_ou_rota(char* str, bool plural){
     limpar_terminal();
     int opc;
-    printf("1. Cadastrar aeronave;\n");
-    printf("2. Cadastrar rota;\n");
+    if(plural){
+        printf("1. %s AERONAVES;\n", str);
+        printf("2. %s ROTAS;\n", str);
+        printf("0. Voltar.\n");
+        printf("::::::: ");
+        scanf("%d", &opc);
+        getchar();
+        
+        return opc;
+    }
+
+    printf("1. %s AERONAVE;\n", str);
+    printf("2. %s ROTA;\n", str);
     printf("0. Voltar.\n");
     printf("::::::: ");
     scanf("%d", &opc);
@@ -35,30 +46,17 @@ int submenu_cadastros(){
     return opc;
 }
 
-int submenu_cadastrar_inicio_fim(char* a_r){
+int submenu_cadastrar_inicio_fim(char* str){
     limpar_terminal();
     int opc;
-    printf("1. Cadastrar %s pelo inicio;\n", a_r);
-    printf("2. Cadastrar %s pelo fim;\n", a_r);
+    printf("1. Cadastrar %s pelo inicio;\n", str);
+    printf("2. Cadastrar %s pelo fim;\n", str);
     printf("0. Voltar.\n");
     printf("::::::: ");
     scanf("%d", &opc);
     getchar();
 
     return opc;  
-}
-
-int submenu_localizar(){
-    limpar_terminal();
-    int opc;
-    printf("1. Localizar aeronaves;\n");
-    printf("2. Localizar rotas;\n");
-    printf("0. Voltar.\n");
-    printf("::::::: ");
-    scanf("%d", &opc);
-    getchar();
-
-    return opc;
 }
 
 int submenu_localizar_aeronaves(){
@@ -96,19 +94,6 @@ int submenu_localizar_rotas(){
     return opc;
 }
 
-int submenu_listar_tudo(){
-    limpar_terminal();
-    int opc;
-    printf("1. Listar Todas as Aeronaves Cadastradas;\n");
-    printf("2. Listar Todas as Rotas Cadastradas;\n");
-    printf("0. Voltar.\n");
-    printf("::::::: ");
-    scanf("%d", &opc);
-    getchar();
-
-    return opc;
-}
-
 int submenu_exportar_dados(){
     limpar_terminal();
     int opc;
@@ -122,17 +107,3 @@ int submenu_exportar_dados(){
 
     return opc;
 }
-
-int submenu_exportar_quais_dados(){
-    limpar_terminal();
-    int opc;
-    printf("1. Exportar AERONAVES;\n");
-    printf("2. Exportar ROTAS;\n");
-    printf("0. Voltar.\n");
-    printf("::::::: ");
-    scanf("%d", &opc);
-    getchar();
-
-    return opc;
-}
-

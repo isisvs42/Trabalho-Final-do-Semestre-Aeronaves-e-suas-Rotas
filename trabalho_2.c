@@ -38,7 +38,7 @@ int main(){
 
             case 1: // CADASTRAR
                 do {
-                    opc_sub = submenu_cadastros();
+                    opc_sub = submenu_aeronave_ou_rota("Cadastrar", false);
 
                     switch (opc_sub) {
 
@@ -187,7 +187,7 @@ int main(){
 
             case 2: // LOCALIZAR
                 do {
-                    opc_sub = submenu_localizar();
+                    opc_sub = submenu_aeronave_ou_rota("Localizar", false);
 
                     switch(opc_sub){
                         case 1: // LOCALIZAR AERONAVES
@@ -346,7 +346,7 @@ int main(){
 
             case 3: // LISTAR TUDO
                 do {
-                    opc_sub = submenu_listar_tudo();
+                    opc_sub = submenu_aeronave_ou_rota("Listar todas as", true);
 
                     switch(opc_sub){
                         case 1: // LISTAR TODAS AS AERONAVES
@@ -372,21 +372,65 @@ int main(){
                 } while(opc_sub);
                 break;
 
-            case 4: // APAGAR AERONAVE
-                listar_aeronaves(lista_aeronaves);
-                printf("Digite o codigo da aeronave que deseja apagar: ");
-                scanf("%u", &codigo_aeronave);
+            case 4: // APAGAR
                 do {
-                    printf("Tem certeza que quer apagar aeronave %u (1 = sim/2 = nao)? ", codigo_aeronave);
-                    scanf("%u", &s_n);
-                    getchar();
-                } while (s_n < 1 || s_n > 2);
-                aeronave = localizar_aeronave_por_codigo(codigo_aeronave, lista_aeronaves);
-                if(aeronave)
-                    apagar_aeronave(aeronave, &lista_aeronaves);
-                else
-                    printf("Essa aeronave nao foi encontrada...\n");
-                pressione_enter();
+                    opc_sub = submenu_aeronave_ou_rota("Apagar", false);
+                    
+                    switch(opc_sub) {
+                        case 1: // AERONAVE
+                            listar_aeronaves(lista_aeronaves);
+                            printf("Digite o codigo da aeronave que deseja apagar: ");
+                            scanf("%u", &codigo_aeronave);
+                            getchar();
+                            do {
+                                printf("Tem certeza que quer apagar aeronave %u (1 = sim/2 = nao)? ", codigo_aeronave);
+                                scanf("%u", &s_n);
+                                getchar();
+                            } while (s_n < 1 || s_n > 2);
+                            if(s_n == 1){
+                                aeronave = localizar_aeronave_por_codigo(codigo_aeronave, lista_aeronaves);
+                                if(aeronave)
+                                    apagar_aeronave(aeronave, &lista_aeronaves);
+                                else
+                                    printf("Essa aeronave nao foi encontrada...\n");
+                                pressione_enter();
+                            } else {
+                                printf("Abortando apagar aeronave...\n");
+                                pressione_enter();
+                            }
+                            break;
+
+                        case 2: // ROTA
+                            listar_rotas(lista_rotas);
+                            printf("Digite o codigo da rota que deseja apagar: ");
+                            scanf("%u", &codigo_rota);
+                            getchar();
+                            do {
+                                printf("Tem certeza que quer apagar rota %u (1 = sim/2 = nao)? ", codigo_rota);
+                                scanf("%u", &s_n);
+                                getchar();
+                            } while (s_n < 1 || s_n > 2);
+                            if(s_n == 1){
+                                rota = localizar_rota_por_codigo(codigo_rota, lista_rotas);
+                                if(rota)
+                                    apagar_rota(rota, &lista_rotas);
+                                else
+                                    printf("Essa rota nao foi encontrada...\n");
+                                pressione_enter();
+                            } else {
+                                printf("Abortando apagar rota...\n");
+                                pressione_enter();
+                            }
+                            break;
+
+                        case 0:
+                            break;
+
+                        default:
+                            printf("Isso nao eh uma opcao.\n");
+                            pressione_enter();
+                    }
+                } while (opc_sub);
                 break;
             
             case 5: // EXPORTAR DADOS
@@ -396,7 +440,7 @@ int main(){
                     switch (opc_sub){
                         case 1: // ARQUIVO TXT
                             do {
-                                opc_sub2 = submenu_exportar_quais_dados();
+                                opc_sub2 = submenu_aeronave_ou_rota("Exportar", true);
                                 switch (opc_sub2){
                                     case 1: // exportar aeronaves
                                         printf("Digite um nome para o arquivo ser gerado (AERONAVES): ");
@@ -430,7 +474,7 @@ int main(){
 
                         case 2: // PLANILHA CSV
                             do {
-                                opc_sub2 = submenu_exportar_quais_dados();
+                                opc_sub2 = submenu_aeronave_ou_rota("Exportar", true);
                                 switch (opc_sub2){
                                     case 1: // exportar aeronaves
                                         printf("Digite um nome para o arquivo ser gerado (AERONAVES): ");
@@ -464,7 +508,7 @@ int main(){
 
                         case 3: // HTML
                             do {
-                                opc_sub2 = submenu_exportar_quais_dados();
+                                opc_sub2 = submenu_aeronave_ou_rota("Exportar", true);
                                 switch (opc_sub2){
                                     case 1: // exportar aeronaves
                                         printf("Digite um nome para o arquivo ser gerado (AERONAVES): ");

@@ -163,7 +163,7 @@ void mostrar_nomes_tripulacao(string *matriz_tripulacao, int n_tripulacao, FILE 
         if(i != n_tripulacao-1)
             fprintf(fp, "%s, ", matriz_tripulacao+i);
         else
-            fprintf(fp, "%s.", matriz_tripulacao+i);
+            fprintf(fp, "%s.\n", matriz_tripulacao+i);
     }
 }
 
