@@ -5,11 +5,11 @@
 CC = gcc
 SRC = ./src
 OBJS = ./objs
-TARGET = trabalho_2
+TARGET = main
 LIMPAR = rm
 
 all: objetos
-	$(CC) $(OBJS)/apagar.o $(OBJS)/arquivo_bin.o $(OBJS)/cadastros.o $(OBJS)/exportar_dados.o $(OBJS)/listagens.o $(OBJS)/menus.o $(OBJS)/quantidades.o $(OBJS)/uteis.o $(OBJS)/trabalho_2.o -o $(TARGET)
+	$(CC) $(OBJS)/apagar.o $(OBJS)/arquivo_bin.o $(OBJS)/cadastros.o $(OBJS)/exportar_dados.o $(OBJS)/listagens.o $(OBJS)/menus.o $(OBJS)/quantidades.o $(OBJS)/uteis.o $(OBJS)/main.o -o $(TARGET)
 
 objetos:
 	$(CC) -c $(SRC)/apagar.c -o $(OBJS)/apagar.o
@@ -20,7 +20,7 @@ objetos:
 	$(CC) -c $(SRC)/menus.c -o $(OBJS)/menus.o
 	$(CC) -c $(SRC)/quantidades.c -o $(OBJS)/quantidades.o
 	$(CC) -c $(SRC)/uteis.c -o $(OBJS)/uteis.o
-	$(CC) -c ./trabalho_2.c -o $(OBJS)/trabalho_2.o
+	$(CC) -c ./main.c -o $(OBJS)/main.o
 
 clear:
 	$(LIMPAR) $(OBJS)/*.o
