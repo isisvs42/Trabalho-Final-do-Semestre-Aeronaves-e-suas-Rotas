@@ -34,7 +34,7 @@ Os ponteiros para as listas de:
 * Aeronaves
 * Rotas
 
-São declarados **localmente na função `main()`, não havendo variáveis globais no sistema.
+São declarados **localmente na função `main()`**, não havendo variáveis globais no sistema.
 
 ---
 
