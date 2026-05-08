@@ -49,8 +49,27 @@ Cada nó contém:
 * Ponteiro para o próximo elemento
 
 ---
+## 📁 Estrutura do Projeto
+
+```
+.
+├── src/              # Arquivos fonte (.c)
+├── include/          # Cabeçalhos (.h)
+├── database/         # Arquivos binários de persistência (.bin)
+├── csv/              # Relatórios exportados em CSV
+├── html/             # Relatórios exportados em HTML
+├── txt/              # Relatórios exportados em TXT
+├── Makefile
+├── main.c
+└── README.md
+```
+---
 
 ## 💾 Persistência de Dados
+
+Os dados são salvos e carregados da pasta `database/`:
+- `database/aeronaves.bin`
+- `database/rotas.bin`
 
 O sistema realiza:
 
@@ -100,6 +119,11 @@ Os relatórios podem ser:
 * Exportados para `.html`
 
 O nome do arquivo `.csv` é definido pelo usuário no momento da exportação.
+
+Os arquivos exportados são salvos automaticamente nas pastas correspondentes:
+- `.txt` → pasta `txt/`
+- `.csv` → pasta `csv/`  
+- `.html` → pasta `html/`
 
 ---
 

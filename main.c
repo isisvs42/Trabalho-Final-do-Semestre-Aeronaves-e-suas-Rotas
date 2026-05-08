@@ -21,8 +21,8 @@ int main(){
     rotas_t *rota = NULL, *lista_rotas = NULL;
     //rotas_t *maiores_rotas = NULL, *menores_rotas = NULL;
 
-    ler_dados_arq_bin_aeronaves("aeronaves.bin", &lista_aeronaves);
-    ler_dados_arq_bin_rotas("rotas.bin", &lista_rotas);
+    ler_dados_arq_bin_aeronaves("database/aeronaves.bin", &lista_aeronaves);
+    ler_dados_arq_bin_rotas("database/rotas.bin", &lista_rotas);
 
     do{
         opc_menu = menu();
@@ -30,8 +30,8 @@ int main(){
         switch (opc_menu){
 
             case 0:
-                salvar_dados_arq_bin_aeronaves(lista_aeronaves, "aeronaves.bin");
-                salvar_dados_arq_bin_rotas(lista_rotas, "rotas.bin");
+                salvar_dados_arq_bin_aeronaves(lista_aeronaves, "database/aeronaves.bin");
+                salvar_dados_arq_bin_rotas(lista_rotas, "database/rotas.bin");
                 printf("Encerrando programa...\n");
                 pressione_enter();
                 break;
@@ -444,20 +444,19 @@ int main(){
                                 switch (opc_sub2){
                                     case 1: // exportar aeronaves
                                         printf("Digite um nome para o arquivo ser gerado (AERONAVES): ");
+                                        char caminho[512];
                                         fgets(nome, T_STRING, stdin);
                                         retirar_enter(nome);
-                                        strcat(nome, ".txt");
-                                        exportar_dados_arquivo_texto_aeronaves(nome, lista_aeronaves);
-                                        pressione_enter();
+                                        snprintf(caminho, sizeof(caminho), "txt/%s.txt", nome);
+                                        exportar_dados_arquivo_txt_aeronaves(caminho, lista_aeronaves);
                                         break;
 
                                     case 2: // exportar rotas
-                                        printf("Digite um nome para o arquivo ser gerado (ROTAS): ");
+                                        char caminho[512];
                                         fgets(nome, T_STRING, stdin);
                                         retirar_enter(nome);
-                                        strcat(nome, ".txt");
-                                        exportar_dados_arquivo_texto_rotas(nome, lista_rotas);
-                                        pressione_enter();
+                                        snprintf(caminho, sizeof(caminho), "txt/%s.txt", nome);
+                                        exportar_dados_arquivo_txt_rotas(caminho, lista_rotas);
                                         break;
 
                                     case 0:
@@ -478,20 +477,20 @@ int main(){
                                 switch (opc_sub2){
                                     case 1: // exportar aeronaves
                                         printf("Digite um nome para o arquivo ser gerado (AERONAVES): ");
+                                        char caminho[512];
                                         fgets(nome, T_STRING, stdin);
                                         retirar_enter(nome);
-                                        strcat(nome, ".csv");
-                                        exportar_dados_arquivo_csv_aeronaves(nome, lista_aeronaves);
-                                        pressione_enter();
+                                        snprintf(caminho, sizeof(caminho), "csv/%s.csv", nome);
+                                        exportar_dados_arquivo_csv_aeronaves(caminho, lista_aeronaves);
                                         break;
 
                                     case 2: // exportar rotas
                                         printf("Digite um nome para o arquivo ser gerado (ROTAS): ");
+                                        char caminho[512];
                                         fgets(nome, T_STRING, stdin);
                                         retirar_enter(nome);
-                                        strcat(nome, ".csv");
-                                        exportar_dados_arquivo_csv_rotas(nome, lista_rotas);
-                                        pressione_enter();
+                                        snprintf(caminho, sizeof(caminho), "csv/%s.csv", nome);
+                                        exportar_dados_arquivo_csv_rotas(caminho, lista_rotas);
                                         break;
 
                                     case 0:
@@ -512,19 +511,21 @@ int main(){
                                 switch (opc_sub2){
                                     case 1: // exportar aeronaves
                                         printf("Digite um nome para o arquivo ser gerado (AERONAVES): ");
+                                        char caminho[512];
                                         fgets(nome, T_STRING, stdin);
                                         retirar_enter(nome);
-                                        strcat(nome, ".html");
-                                        exportar_dados_arquivo_html_aeronaves(nome, lista_aeronaves);
+                                        snprintf(caminho, sizeof(caminho), "html/%s.html", nome);
+                                        exportar_dados_arquivo_html_rotas(caminho, lista_rotas);
                                         pressione_enter();
                                         break;
 
                                     case 2: // exportar rotas
                                         printf("Digite um nome para o arquivo ser gerado (ROTAS): ");
+                                        char caminho[512];
                                         fgets(nome, T_STRING, stdin);
                                         retirar_enter(nome);
-                                        strcat(nome, ".html");
-                                        exportar_dados_arquivo_html_rotas(nome, lista_rotas);
+                                        snprintf(caminho, sizeof(caminho), "html/%s.html", nome);
+                                        exportar_dados_arquivo_html_aeronaves(caminho, lista_aeronaves);
                                         pressione_enter();
                                         break;
 
