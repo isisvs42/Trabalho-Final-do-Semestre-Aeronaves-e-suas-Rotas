@@ -82,8 +82,8 @@ O sistema realiza:
 
 * Gravação completa das listas em:
 
-  * `aeronaves.bin`
-  * `rotas.bin`
+  * `database/aeronaves.bin`
+  * `database/rotas.bin`
 
 ---
 
