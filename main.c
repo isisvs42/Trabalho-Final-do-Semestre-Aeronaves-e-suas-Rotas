@@ -10,6 +10,7 @@
 
 int main(){
     bool carga;
+    char caminho[512];
     string nome;
     data_t inicio, fim, data;
     fabricantes_t fabricante;
@@ -444,19 +445,20 @@ int main(){
                                 switch (opc_sub2){
                                     case 1: // exportar aeronaves
                                         printf("Digite um nome para o arquivo ser gerado (AERONAVES): ");
-                                        char caminho[512];
                                         fgets(nome, T_STRING, stdin);
                                         retirar_enter(nome);
                                         snprintf(caminho, sizeof(caminho), "txt/%s.txt", nome);
                                         exportar_dados_arquivo_txt_aeronaves(caminho, lista_aeronaves);
+                                        pressione_enter();
                                         break;
 
                                     case 2: // exportar rotas
-                                        char caminho[512];
+                                        printf("Digite um nome para o arquivo ser gerado (AERONAVES): ");
                                         fgets(nome, T_STRING, stdin);
                                         retirar_enter(nome);
                                         snprintf(caminho, sizeof(caminho), "txt/%s.txt", nome);
                                         exportar_dados_arquivo_txt_rotas(caminho, lista_rotas);
+                                        pressione_enter();
                                         break;
 
                                     case 0:
@@ -477,20 +479,20 @@ int main(){
                                 switch (opc_sub2){
                                     case 1: // exportar aeronaves
                                         printf("Digite um nome para o arquivo ser gerado (AERONAVES): ");
-                                        char caminho[512];
                                         fgets(nome, T_STRING, stdin);
                                         retirar_enter(nome);
                                         snprintf(caminho, sizeof(caminho), "csv/%s.csv", nome);
                                         exportar_dados_arquivo_csv_aeronaves(caminho, lista_aeronaves);
+                                        pressione_enter();
                                         break;
 
                                     case 2: // exportar rotas
                                         printf("Digite um nome para o arquivo ser gerado (ROTAS): ");
-                                        char caminho[512];
                                         fgets(nome, T_STRING, stdin);
                                         retirar_enter(nome);
                                         snprintf(caminho, sizeof(caminho), "csv/%s.csv", nome);
                                         exportar_dados_arquivo_csv_rotas(caminho, lista_rotas);
+                                        pressione_enter();
                                         break;
 
                                     case 0:
@@ -511,21 +513,19 @@ int main(){
                                 switch (opc_sub2){
                                     case 1: // exportar aeronaves
                                         printf("Digite um nome para o arquivo ser gerado (AERONAVES): ");
-                                        char caminho[512];
                                         fgets(nome, T_STRING, stdin);
                                         retirar_enter(nome);
                                         snprintf(caminho, sizeof(caminho), "html/%s.html", nome);
-                                        exportar_dados_arquivo_html_rotas(caminho, lista_rotas);
+                                        exportar_dados_arquivo_html_aeronaves(caminho, lista_aeronaves);
                                         pressione_enter();
                                         break;
 
                                     case 2: // exportar rotas
                                         printf("Digite um nome para o arquivo ser gerado (ROTAS): ");
-                                        char caminho[512];
                                         fgets(nome, T_STRING, stdin);
                                         retirar_enter(nome);
                                         snprintf(caminho, sizeof(caminho), "html/%s.html", nome);
-                                        exportar_dados_arquivo_html_aeronaves(caminho, lista_aeronaves);
+                                        exportar_dados_arquivo_html_rotas(caminho, lista_rotas);
                                         pressione_enter();
                                         break;
 
